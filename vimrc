@@ -1,5 +1,5 @@
 " configure vim pathogen
-" http://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim  
+" http://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim
 filetype on " solves pathogen exit status 1 bug - http://tooky.github.com/2010/04/08/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x.html
 filetype off
 call pathogen#helptags()
@@ -42,8 +42,8 @@ set wrap
 " set options
 set nobackup
 set nowritebackup
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set showcmd  	" display incomplete commands
+set incsearch  	" do incremental searching
 set number    " display line numbers
 set showmatch  " show matching bracket
 set foldmethod=indent   " folding is available following indentation
@@ -62,8 +62,8 @@ imap <S-C-v> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
-  let l:origft = &ft 
-  set ft= 
+  let l:origft = &ft
+  set ft=
   " delete the xml header if it exists. This will
   " permit us to surround the document with fake tags
   " without creating invalid xml.
@@ -77,8 +77,8 @@ function! DoPrettyXML()
   " xmllint will insert an <?xml?> header. it's easy enough to delete
   " if you don't want it.
   " delete the fake tags
-  2d  
-  $d  
+  2d
+  $d
   " restore the 'normal' indentation, which is one extra level
   " too deep due to the extra tags we wrapped around the document.
   silent %<
