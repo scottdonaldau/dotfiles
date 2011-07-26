@@ -87,7 +87,23 @@ function! DoPrettyXML()
   " restore the filetype
   exe "set ft=" . l:origft
 endfunction
-command! PrettyXML call DoPrettyXML()
+command! PrettyXML :call DoPrettyXML()
+
+function! DeleteInactiveHiddenBufs()
+  let i = 1
+  let lastBufNr = bufnr('$')
+  let nWipeouts = 0
+  while i <= lastBufNr
+    if bufexists(i) && ! buflisted(i) && bufwinnr(i) == -1
+      silent exec 'bwipeout' i
+      let nWipeouts = nWipeouts + 1
+    endif
+    let i = i + 1
+  endwhile
+  echomsg nWipeouts . ' buffer(s) wipedout'
+endfunction
+command! DeleteInactiveHiddenBufs :call DeleteInactiveHiddenBufs()
+
 
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
