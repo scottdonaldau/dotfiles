@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-rdoc"]
 	path = vim/bundle/vim-rdoc
 	url = https://github.com/depuracao/vim-rdoc.git
+[submodule "vim/bundle/vim-abolish"]
+	path = vim/bundle/vim-abolish
+	url = https://github.com/vim-scripts/abolish.vim.git
