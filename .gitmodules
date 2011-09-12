@@ -43,3 +43,12 @@
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = https://github.com/vim-scripts/abolish.vim.git
+[submodule "vim/bundle/vim-fuzzyfinder-textmate"]
+	path = vim/bundle/vim-fuzzyfinder-textmate
+	url = git://github.com/jamis/fuzzyfinder_textmate.git
+[submodule "vim/bundle/vim-fuzzyfinder"]
+	path = vim/bundle/vim-fuzzyfinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/bundle/vim-l9"]
+	path = vim/bundle/vim-l9
+	url = git://github.com/vim-scripts/L9.git
