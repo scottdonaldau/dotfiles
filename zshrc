@@ -32,6 +32,7 @@ export EDITOR=vim
 # Customize to your needs...
 setopt NOCORRECTALL
 alias vi=vim
+alias la='ls -A'
 alias gd='git diff'
 alias gdv='git diff | vim -'
 alias be='bundle exec'
