@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/1894614/vim-fuzzyfinder-usage-tips-gotchas-how-can-one-make-use-of-this-plugin
