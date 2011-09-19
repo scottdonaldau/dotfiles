@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-l9"]
 	path = vim/bundle/vim-l9
 	url = git://github.com/vim-scripts/L9.git
+[submodule "vim/bundle/vim-lusty"]
+	path = vim/bundle/vim-lusty
+	url = https://github.com/sjbach/lusty
