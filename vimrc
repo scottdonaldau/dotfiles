@@ -108,3 +108,5 @@ command! DeleteInactiveHiddenBufs :call DeleteInactiveHiddenBufs()
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
 
+" activate a mode required by lustyExplorer plugin
+:set hidden
