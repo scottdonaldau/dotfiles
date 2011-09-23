@@ -25,7 +25,9 @@ export PATH=/usr/sbin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
-export PATH=~/Library/android-sdk-mac_x86/platform-tools:$PATH
+export JAVA_HOME=/Library/Java/Home
+export ANDROID_HOME=~/Library/android-sdk-mac_x86
+export PATH=JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 export NODE_PATH=/usr/local/lib/node
 export EDITOR=vim
 
