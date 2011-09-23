@@ -39,5 +39,19 @@ alias be='bundle exec'
 alias bake='bundle exec rake'
 
 alias ack='ack -a --ignore-dir log --ignore-dir coverage'
+# Glen's @ envato.com git tricks -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks
+function git_current_branch() {
+  git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
+}
+alias gpthis='git push origin HEAD:$(git_current_branch)'
+alias grb='git rebase -p'
+alias gup='git fetch origin && grb origin/$(git_current_branch)'
+alias gm='git merge --no-ff'
+
+alias gupnp='gup && gpthis'
+
+# Damo's git aliases
+alias super-gup='git stash && gup && git stash pop'
+alias super-gupush='git stash && gup && git stash pop && git push'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
