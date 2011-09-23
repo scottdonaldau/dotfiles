@@ -13,6 +13,7 @@ nnoremap <leader>l :set invwrap wrap?<CR>  " use ',l' to toggle wordwrap
 nnoremap <leader>d :NERDTreeToggle<CR>  " use ',d' to toggle the NERDTree
 nmap <leader>p :let @* = expand("%:p")<CR> " use ',p' to copy the current path to the system clipboard
 map <leader>t :FuzzyFinderTextMate<CR>
+map <leader>F :Ack<space>
 set pastetoggle=<leader>p
 
 " notepad ++ like moves (line switchs)
