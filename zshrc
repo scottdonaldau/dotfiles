@@ -33,30 +33,31 @@ export EDITOR=vim
 
 # Customize to your needs...
 setopt NOCORRECTALL
-alias vi=vim
+[ -f /opt/local/bin/vi ] && alias vi='/opt/local/bin/vi' || alias vi='vim'
 alias la='ls -A'
 alias gd='git diff'
 alias gdv='git diff | vim -'
 alias be='bundle exec'
 alias bake='bundle exec rake'
 
-alias ack='ack -a --ignore-dir log --ignore-dir coverage'
+alias ack='ack -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp'
+
 # Glen's @ envato.com git tricks -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks
 function git_current_branch() {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
 }
-alias gpthis='git push origin HEAD:$(git_current_branch)'
+alias gpush='git push origin HEAD:$(git_current_branch)'
 alias grb='git rebase -p'
-alias gup='git fetch origin && grb origin/$(git_current_branch)'
+alias gpull='git fetch origin && grb origin/$(git_current_branch)'
 alias gm='git merge --no-ff'
 
-alias gupnp='gup && gpthis'
+alias gpnp='gpull && gpush'
 
 # Damo's git aliases
-alias super-gup='git stash && gup && git stash pop'
-alias super-gupush='git stash && gup && git stash pop && git push'
+alias super-gpull='git stash && gpull && git stash pop'
+alias super-gpnp='super-gpull && gpush'
 
-#autojump
+# autojump
 function autojump_preexec() { (autojump -a "$(pwd -P)"&)>/dev/null }
 typeset -ga preexec_functions
 preexec_functions+=autojump_preexec
