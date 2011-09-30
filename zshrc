@@ -50,12 +50,10 @@ alias gpush='git push origin HEAD:$(git_current_branch)'
 alias grb='git rebase -p'
 alias gpull='git fetch origin && grb origin/$(git_current_branch)'
 alias gm='git merge --no-ff'
-
 alias gpnp='gpull && gpush'
-
-# Damo's git aliases
-alias super-gpull='git stash && gpull && git stash pop'
-alias super-gpnp='super-gpull && gpush'
+# all in one super git stash and do - from Damo's aliases
+alias gspull='git stash && gpull && git stash pop'
+alias gspnp='gspull && gpush'
 
 # autojump
 function autojump_preexec() { (autojump -a "$(pwd -P)"&)>/dev/null }
