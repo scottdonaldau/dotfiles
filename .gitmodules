@@ -49,3 +49,6 @@
 [submodule "vim/bundle/vim-command-t"]
 	path = vim/bundle/vim-command-t
 	url = https://github.com/vim-scripts/Command-T.git
+[submodule "vim/bundle/vim-nerdcommenter"]
+	path = vim/bundle/vim-nerdcommenter
+	url = https://github.com/ddollar/nerdcommenter.git
