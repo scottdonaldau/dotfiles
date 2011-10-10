@@ -39,10 +39,11 @@ alias gd='git diff'
 alias gdv='git diff | vim -'
 alias be='bundle exec'
 alias bake='bundle exec rake'
+alias tail='tail -40'
 
 alias ack='ack -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp'
 
-# Glen's @ envato.com git tricks -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks
+# Glen's @ envato.com git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks
 function git_current_branch() {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
 }
@@ -51,7 +52,9 @@ alias grb='git rebase -p'
 alias gpull='git fetch origin && grb origin/$(git_current_branch)'
 alias gm='git merge --no-ff'
 alias gpnp='gpull && gpush'
-# all in one super git stash and do - from Damo's aliases
+
+# all in one super git stash and do - inspired from Dam5s aliases
+alias gsl='git stash list'
 alias gspull='git stash && gpull && git stash pop'
 alias gspnp='gspull && gpush'
 
