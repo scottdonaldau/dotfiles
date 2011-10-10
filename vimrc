@@ -9,7 +9,7 @@ call pathogen#runtime_append_all_bundles()
 let mapleader = ","
 map <leader>s :%s/\s\+$//e \| :%s/\t/  /e<CR><C-o>  " use ',s' to clean trailing spaces and remove tabs
 map <leader>= <Esc>:1,$!xmllint --format -<CR>  " use ',=' to xml re-indent
-nnoremap <leader>l :set invwrap wrap?<CR>  " use ',l' to toggle wordwrap
+nnoremap <leader>k :set invwrap wrap?<CR>  " use ',l' to toggle wordwrap
 nnoremap <leader>d :NERDTreeToggle<CR>  " use ',d' to toggle the NERDTree
 nmap <leader>p :let @* = expand("%:p")<CR> " use ',p' to copy the current path to the system clipboard
 map <leader>F :Ack<space>
@@ -110,5 +110,8 @@ command! DeleteInactiveHiddenBufs :call DeleteInactiveHiddenBufs()
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
 
+" some Lusty plugins specifics
+nnoremap <leader>b :LustyBufferExplorer<CR>  " use ',b' instead of default ',lb' to access the buffers fuzzy finder plugin
+nnoremap <leader>j :LustyJuggler<CR>  " use ',j' instead of default ',lj' to access the recent buffers juggler plugin
 " activate a mode required by lustyExplorer plugin
 :set hidden
