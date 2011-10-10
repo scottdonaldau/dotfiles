@@ -55,7 +55,7 @@ alias gpnp='gpull && gpush'
 
 # all in one super git stash and do - inspired from Dam5s aliases
 alias gsl='git stash list'
-alias gspull='git stash && gpull && git stash pop'
+alias gspull='git stash && gpull && git stash pop || true'
 alias gspnp='gspull && gpush'
 
 # autojump
