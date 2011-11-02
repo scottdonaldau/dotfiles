@@ -5,7 +5,7 @@ filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" at home I can see shit with railscast theme...
+" at home(linux) I can't see shit with railscast theme...
 colorscheme vibrantink
 
 " assigning a leader key and mapping some commands to it
@@ -18,12 +18,8 @@ nmap <leader>p :let @* = expand("%:p")<CR> " use ',p' to copy the current path t
 map <leader>F :Ack<space>
 set pastetoggle=<leader>p
 
-" notepad ++ like moves (line switchs)
-" WORK ON IT!-- http://stackoverflow.com/questions/741814/move-entire-line-up-and-down-in-vim
-" map <C-S-down> ddp
-" imap <C-S-down> <Esc>ddpi
-" map <C-S-up> ddkP
-" imap <C-S-up> <Esc>ddkPi
+set ignorecase " we don't the case on the search
+set smartcase " in fact we do care the case unless search is all lowercased
 
 " notepad++ style bookmarks -- bookmarking extension
 :map <leader>m :ToggleBookmark<CR>

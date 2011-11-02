@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# mon rc à moi first, et même non-interactively !
-. /home/jobano/scripts/sys-utils/my.bashrc
+# my homeRC script (linux)
+[ -f /home/jobano/scripts/sys-utils/my.bashrc ] && . /home/jobano/scripts/sys-utils/my.bashrc
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -38,7 +38,7 @@ export EDITOR=vim
 
 # Customize to your needs...
 setopt NOCORRECTALL
-[ -f /opt/local/bin/vi ] && alias vi='/opt/local/bin/vi' || alias vi='vim'
+[ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
 alias la='ls -A'
 alias gd='git diff'
 alias gdv='git diff | vim -'
