@@ -58,3 +58,6 @@
 [submodule "vim/bundle/vim-bookmarking"]
 	path = vim/bundle/vim-bookmarking
 	url = https://github.com/dterei/VimBookmarking
+[submodule "vim/bundle/vim-up-and-down"]
+	path = vim/bundle/vim-up-and-down
+	url = https://github.com/vim-scripts/upAndDown.git

@@ -5,6 +5,9 @@ filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+" at home I can see shit with railscast theme...
+colorscheme vibrantink
+
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
 map <leader>s :%s/\s\+$//e \| :%s/\t/  /e<CR><C-o>  " use ',s' to clean trailing spaces and remove tabs
@@ -17,18 +20,14 @@ set pastetoggle=<leader>p
 
 " notepad ++ like moves (line switchs)
 " WORK ON IT!-- http://stackoverflow.com/questions/741814/move-entire-line-up-and-down-in-vim
-map <C-S-down> ddp
-imap <C-S-down> <Esc>ddpi
-map <C-S-up> ddkP
-imap <C-S-up> <Esc>ddkPi
+" map <C-S-down> ddp
+" imap <C-S-down> <Esc>ddpi
+" map <C-S-up> ddkP
+" imap <C-S-up> <Esc>ddkPi
 
 " notepad++ style bookmarks -- bookmarking extension
 :map <leader>m :ToggleBookmark<CR>
 :map & :NextBookmark<CR>
-
-" switching on buffer like tabs
-:map <C-PageUp> :bp<CR>
-:map <C-PageDown> :bn<CR>
 
 " mapping over the wonderful surround.vim plugin -- thx Tim
 :vmap "" S"

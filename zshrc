@@ -1,9 +1,14 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
+# mon rc à moi first, et même non-interactively !
+. /home/jobano/scripts/sys-utils/my.bashrc
+
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="josh"
+# oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
+export DISABLE_AUTO_UPDATE="true"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -66,3 +71,6 @@ alias jumpstat="autojump --stat"
 function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Added by autojump install.sh
+source /etc/profile.d/autojump.sh
