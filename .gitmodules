@@ -55,3 +55,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-bookmarking"]
+	path = vim/bundle/vim-bookmarking
+	url = https://github.com/dterei/VimBookmarking
