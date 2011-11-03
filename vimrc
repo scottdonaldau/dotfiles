@@ -5,8 +5,13 @@ filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" at home(linux) I can't see shit with railscast theme...
-colorscheme vibrantink
+let s:uname = system("uname")
+if s:uname == "Darwin\n"
+  " Do Mac stuff here
+else
+  " Do Linux Specifc here
+  colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...
+endif
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","

@@ -34,7 +34,17 @@ export JAVA_HOME=/Library/Java/Home
 export ANDROID_HOME=~/Library/android-sdk-mac_x86
 export PATH=JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 export NODE_PATH=/usr/local/lib/node
-export EDITOR=vim
+
+unamestr=`uname`
+if [[ "$unamestr" =~ 'Darwin' ]]; then
+  # MacOS
+  export RHO_HOME=~/.rvm/gems/ruby-1.9.2-p290@rhodes/gems/rhodes-3.2.1
+  export EDITOR="mvim -v"
+else
+  # Linux
+  export EDITOR="vim"
+  source /etc/profile.d/autojump.sh
+fi
 
 # Customize to your needs...
 setopt NOCORRECTALL
@@ -72,5 +82,3 @@ function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\03
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# Added by autojump install.sh
-source /etc/profile.d/autojump.sh
