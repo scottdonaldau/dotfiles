@@ -42,7 +42,7 @@
 	url = https://github.com/depuracao/vim-rdoc.git
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
-	url = https://github.com/vim-scripts/abolish.vim.git
+	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim/bundle/vim-lusty"]
 	path = vim/bundle/vim-lusty
 	url = https://github.com/sjbach/lusty
