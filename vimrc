@@ -66,8 +66,6 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
-imap <S-C-v> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-
 function! DoPrettyXML()
   " save the filetype so we can restore it later
   let l:origft = &ft

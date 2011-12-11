@@ -1,6 +1,10 @@
+" Basically, this is my linux config
+
 set guioptions-=T " hide toolbar
-set lines=55 columns=100
-
 colorscheme railscasts
+set guifont=Monospace\ 14
+map <S-C-x> "+x
+map <S-C-c> "+y
+map <S-C-v> "+gP
+imap <S-C-v> <Esc>"+gPa
 
-set guifont=Monaco:h13
