@@ -46,6 +46,9 @@ else
   source /etc/profile.d/autojump.sh
 fi
 
+# bind Bash comportment for Ctrl+U (clears beginning of the line)
+bindkey \^U backward-kill-line
+
 # Customize to your needs...
 setopt NOCORRECTALL
 [ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
