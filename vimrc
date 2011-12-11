@@ -8,6 +8,7 @@ call pathogen#runtime_append_all_bundles()
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
   " Do Mac stuff here
+  colorscheme railscasts
 else
   " Do Linux Specifc here
   colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...
