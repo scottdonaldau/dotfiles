@@ -14,6 +14,17 @@ export DISABLE_AUTO_UPDATE="true"
 plugins=(git ruby rails cap github)
 source $ZSH/oh-my-zsh.sh
 
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/sbin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/bin:$PATH
+[ -f /Library/Java/Home ] && export JAVA_HOME=/Library/Java/Home || export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
+
+export ANDROID_HOME=~/Library/android-sdk-mac_x86
+export PATH=JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export NODE_PATH=/usr/local/lib/node
+
 unamestr=`uname`
 if [[ "$unamestr" =~ 'Darwin' ]]; then
   # MacOS @Work
