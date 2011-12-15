@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# my homeRC script (linux)
-[ -f /home/jobano/scripts/sys-utils/my.bashrc ] && . /home/jobano/scripts/sys-utils/my.bashrc
-
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="josh"
@@ -37,11 +34,11 @@ export NODE_PATH=/usr/local/lib/node
 
 unamestr=`uname`
 if [[ "$unamestr" =~ 'Darwin' ]]; then
-  # MacOS
+  # MacOS @Work
   export RHO_HOME=~/.rvm/gems/ruby-1.9.2-p290@rhodes/gems/rhodes-3.2.1
-  export EDITOR="mvim -v"
+  export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim" # mvim -v does not work with programs like crontab
 else
-  # Linux
+  # Linux @Home
   export EDITOR="vim"
   source /etc/profile.d/autojump.sh
 fi
@@ -60,6 +57,8 @@ alias bake='bundle exec rake'
 alias tail='tail -40'
 
 alias ack='ack -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp'
+
+[ -f ${HOME}/scripts/sys-utils/my.rc ] && source ${HOME}/scripts/sys-utils/my.rc # some more specific aliases
 
 # Glen's @ envato.com git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks
 function git_current_branch() {
