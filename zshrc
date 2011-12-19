@@ -29,7 +29,7 @@ export PATH=/opt/local/bin:$PATH
 export PATH=/opt/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
 export ANDROID_HOME=~/Library/android-sdk-mac_x86
-export PATH=JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 export NODE_PATH=/usr/local/lib/node
 
 unamestr=`uname`
@@ -75,12 +75,17 @@ alias gsl='git stash list'
 alias gspull='git stash && gpull && git stash pop || true'
 alias gspnp='gspull && gpush'
 
-# autojump
-function autojump_preexec() { (autojump -a "$(pwd -P)"&)>/dev/null }
-typeset -ga preexec_functions
-preexec_functions+=autojump_preexec
-alias jumpstat="autojump --stat"
-function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
+# Only if interactive
+if [ ! -z "$PS1" ]; then
+
+  # autojump
+  function autojump_preexec() { (autojump -a "$(pwd -P)"&)>/dev/null }
+  typeset -ga preexec_functions
+  preexec_functions+=autojump_preexec
+  alias jumpstat="autojump --stat"
+  function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
+
+fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
