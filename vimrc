@@ -104,3 +104,7 @@ nnoremap <leader>b :LustyBufferExplorer<CR>  " use ',b' instead of default ',lb'
 nnoremap <leader>j :LustyJuggler<CR>  " use ',j' instead of default ',lj' to access the recent buffers juggler plugin
 " activate a mode required by lustyExplorer plugin
 :set hidden
+
+" associate *.rc with shell filetype
+au BufRead,BufNewFile *.rc set filetype=sh
+
