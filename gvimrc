@@ -13,7 +13,7 @@ else
 
   " Do Linux Specifc here
 
-  set guifont=Monospace\ 14
+  set guifont=Monospace\ 10
 
   " forcing terminal style Copy/Paste shortcuts to work the same
   map <S-C-x> "+x
