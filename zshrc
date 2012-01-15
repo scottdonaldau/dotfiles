@@ -1,19 +1,6 @@
 # [non-interactive included] some more aliases
 [ -f ${HOME}/scripts/sys-utils/my.rc ] && source ${HOME}/scripts/sys-utils/my.rc
 
-# Quit unless interactive session
-[ -z "$PS1" ] && return
-
-# oh-my-zsh configuration
-export ZSH=$HOME/.oh-my-zsh
-# Set to the name theme to load. (Look in ~/.oh-my-zsh/themes/)
-export ZSH_THEME="josh"
-# oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
-export DISABLE_AUTO_UPDATE="true"
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git ruby rails cap github)
-source $ZSH/oh-my-zsh.sh
-
 unamestr=`uname`
 if [[ "$unamestr" =~ 'Darwin' ]]; then
   # MacOS @Work
@@ -29,13 +16,22 @@ else
   export ANDROID_HOME=~/dev/android-sdk-linux_x86
 fi
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=/opt/local/bin:$PATH
-export PATH=/opt/bin:$PATH
+# fix/stuff the PATH
+export PATH=/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-export NODE_PATH=/usr/local/lib/node
+
+# Quit unless interactive session
+[ -z "$PS1" ] && return
+
+# oh-my-zsh configuration
+export ZSH=$HOME/.oh-my-zsh
+# Set to the name theme to load. (Look in ~/.oh-my-zsh/themes/)
+export ZSH_THEME="josh"
+# oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
+export DISABLE_AUTO_UPDATE="true"
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+plugins=(git ruby rails cap github)
+source $ZSH/oh-my-zsh.sh
 
 # bind Bash comportment for Ctrl+U (clears beginning of the line)
 bindkey \^U backward-kill-line
