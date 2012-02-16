@@ -28,8 +28,9 @@ set ignorecase " we don't the case on the search
 set smartcase " in fact we do care the case unless search is all lowercased
 
 " notepad++ style bookmarks -- bookmarking extension
-:map <leader>m :ToggleBookmark<CR>
-:map & :NextBookmark<CR>
+:map 22 :ToggleBookmark<CR>
+:map <C-2> :NextBookmark<CR>
+:map <C-@> :PreviousBookmark<CR>
 
 " mapping over the wonderful surround.vim plugin -- thx Tim
 :vmap "" S"
