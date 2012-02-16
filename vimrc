@@ -106,6 +106,6 @@ nnoremap <leader>j :LustyJuggler<CR>  " use ',j' instead of default ',lj' to acc
 " activate a mode required by lustyExplorer plugin
 :set hidden
 
-" associate *.rc with shell filetype
+" associate specific extensions with specific filetypes
 au BufRead,BufNewFile *.rc set filetype=sh
-
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
