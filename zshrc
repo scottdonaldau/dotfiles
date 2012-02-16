@@ -5,7 +5,8 @@ unamestr=`uname`
 if [[ "$unamestr" =~ 'Darwin' ]]; then
   # MacOS @Work
   export RHO_HOME=~/.rvm/gems/ruby-1.9.2-p290@rhodes/gems/rhodes-3.2.1
-  export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim" # mvim -v does not work with programs like crontab
+  #export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim" # mvim -v does not work with programs like crontab
+  export EDITOR="/usr/bin/mvim"
   export JAVA_HOME=/Library/Java/Home
   export ANDROID_HOME=~/Library/android-sdk-mac_x86
 else
