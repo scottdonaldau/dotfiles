@@ -42,11 +42,11 @@ setopt NOCORRECTALL
 [ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
 alias la='ls -A'
 alias gd='git diff'
-alias gdv='git diff | vim -'
+alias gdv='git diff | vi -'
 alias be='bundle exec'
 alias bake='bundle exec rake'
 alias tail='tail -40'
-alias ack='ack -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp'
+alias ack='ack -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp --ignore-dir public/assets --ignore-dir public/images'
 
 # git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
 function git_current_branch() {
