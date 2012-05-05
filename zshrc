@@ -12,7 +12,7 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
 else
   # Linux @Home
   export EDITOR="vim"
-  source /etc/profile.d/autojump.sh
+  source /usr/share/autojump/autojump.zsh
   export JAVA_HOME=/usr/lib/jvm/java-6-sun
   export ANDROID_HOME=~/dev/android-sdk-linux_x86
 fi

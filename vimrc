@@ -5,26 +5,27 @@ filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-let s:uname = system("uname")
-if s:uname == "Darwin\n"
-  " Do Mac stuff here
-  colorscheme railscasts
-else
-  " Do Linux Specifc here
-  colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...
-endif
-
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
 map <leader>s :%s/\s\+$//e \| :%s/\t/  /e<CR><C-o>  " use ',s' to clean trailing spaces and remove tabs
 map <leader>= <Esc>:1,$!xmllint --format -<CR>  " use ',=' to xml re-indent
 nnoremap <leader>k :set invwrap wrap?<CR>  " use ',l' to toggle wordwrap
 nnoremap <leader>d :NERDTreeToggle<CR>  " use ',d' to toggle the NERDTree
-nmap <leader>p :let @* = expand("%:p")<CR> " use ',p' to copy the current path to the system clipboard
 "let g:ackprg="ack -H --nocolor --nogroup --column -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp --ignore-dir public/assets --ignore-dir public/images"
 let g:ackprg="ack -a -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
 map <leader>F :Ack<space>
 set pastetoggle=<leader>;
+
+let s:uname = system("uname")
+if s:uname == "Darwin\n"
+  " Do Mac stuff here
+  colorscheme railscasts
+  nmap <leader>p :let @* = expand("%:p")<CR> " use ',p' to copy the current path to the system clipboard
+else
+  " Do Linux Specifc here (gvim)
+  colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...
+  nmap <leader>p :!echo "%:p" \|xsel -ib<CR><CR>
+endif
 
 set ignorecase " we don't the case on the search
 set smartcase " in fact we do care the case unless search is all lowercased
