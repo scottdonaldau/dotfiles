@@ -37,6 +37,7 @@
 [submodule "vim/bundle/vim-matchit"]
 	path = vim/bundle/vim-matchit
 	url = https://github.com/edsono/vim-matchit.git
+  desc = "make % moving to matching bracket"
 [submodule "vim/bundle/vim-rdoc"]
 	path = vim/bundle/vim-rdoc
 	url = https://github.com/depuracao/vim-rdoc.git
@@ -61,9 +62,6 @@
 [submodule "vim/bundle/vim-up-and-down"]
 	path = vim/bundle/vim-up-and-down
 	url = https://github.com/vim-scripts/upAndDown.git
-[submodule "vim/bundle/vim-autoclose"]
-	path = vim/bundle/vim-autoclose
-	url = https://github.com/Townk/vim-autoclose.git
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = https://github.com/bdesham/vim-css-color.git
