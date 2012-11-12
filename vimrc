@@ -103,6 +103,9 @@ command! PrettyXML :call DoPrettyXML()
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
 
+" mapping to change the working directory to the current file path
+nnoremap ,cd :lcd %:p:h<CR>
+
 " associate specific extensions with specific filetypes
 au BufRead,BufNewFile *.rc set filetype=sh
 au BufRead,BufNewFile *.hamlc,*.hamstache set ft=haml
