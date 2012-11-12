@@ -103,12 +103,6 @@ command! PrettyXML :call DoPrettyXML()
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
 
-" some Lusty plugins specifics
-nnoremap <leader>b :LustyBufferExplorer<CR>  " use ',b' instead of default ',lb' to access the buffers fuzzy finder plugin
-nnoremap <leader>j :LustyJuggler<CR>  " use ',j' instead of default ',lj' to access the recent buffers juggler plugin
-" activate a mode required by lustyExplorer plugin
-:set hidden
-
 " associate specific extensions with specific filetypes
 au BufRead,BufNewFile *.rc set filetype=sh
 au BufRead,BufNewFile *.hamlc,*.hamstache set ft=haml
