@@ -111,6 +111,7 @@ nnoremap <leader>j :LustyJuggler<CR>  " use ',j' instead of default ',lj' to acc
 
 " associate specific extensions with specific filetypes
 au BufRead,BufNewFile *.rc set filetype=sh
+au BufRead,BufNewFile *.hamlc,*.hamstache set ft=haml
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Delete file from current buffer
