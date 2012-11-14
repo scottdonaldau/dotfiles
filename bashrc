@@ -100,3 +100,5 @@ fi
 
 # Added by autojump install.sh
 source /etc/profile.d/autojump.bash
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

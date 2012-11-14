@@ -41,6 +41,7 @@ bindkey \^U backward-kill-line
 setopt NOCORRECTALL
 [ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
 alias la='ls -A'
+alias sl=ls # often screw this up
 alias gd='git diff'
 alias gdv='git diff | vi -'
 alias be='bundle exec'
@@ -72,3 +73,5 @@ function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\03
 # and rvm...
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
