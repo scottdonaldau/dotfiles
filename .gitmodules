@@ -44,9 +44,6 @@
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "vim/bundle/vim-lusty"]
-	path = vim/bundle/vim-lusty
-	url = https://github.com/sjbach/lusty
 [submodule "vim/bundle/vim-command-t"]
 	path = vim/bundle/vim-command-t
 	url = https://github.com/vim-scripts/Command-T.git
@@ -65,3 +62,6 @@
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = https://github.com/bdesham/vim-css-color.git
+[submodule "vim/bundle/vim-autoclose"]
+	path = vim/bundle/vim-autoclose
+	url = https://github.com/Townk/vim-autoclose.git
