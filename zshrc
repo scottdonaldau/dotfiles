@@ -34,6 +34,9 @@ export DISABLE_AUTO_UPDATE="true"
 plugins=(git ruby rails cap github)
 source $ZSH/oh-my-zsh.sh
 
+# autocomplete commands will include .hidden files
+setopt glob_dots
+
 # bind Bash comportment for Ctrl+U (clears beginning of the line)
 bindkey \^U backward-kill-line
 
