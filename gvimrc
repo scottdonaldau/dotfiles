@@ -13,13 +13,13 @@ else
 
   " Do Linux Specifc here
 
-  set guifont=Monospace\ 10
+  set guifont=Monospace\ 9
 
   " forcing terminal style Copy/Paste shortcuts to work the same
   map <S-C-x> "+x
   map <S-C-c> "+y
-  map <S-C-v> "+gP
-  imap <S-C-v> <Esc>"+gPa
+  " map <S-C-v> "+gP
+  imap <S-C-v> <Esc>"+gpi
 
 endif
 
