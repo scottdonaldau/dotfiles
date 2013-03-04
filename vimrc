@@ -112,6 +112,12 @@ endfunction
 command! PackXML :call RePackXML()
 command! RePackXML :call RePackXML()
 
+function! AlignHash()
+  "'<,'>s/, /\r/g
+  '<,'>Align =>
+endfunction
+command! AlignHash :call AlignHash()
+
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
 

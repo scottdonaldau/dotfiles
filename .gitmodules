@@ -65,3 +65,9 @@
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
+[submodule "vim/bundle/vim-align"]
+	path = vim/bundle/vim-align
+	url = git@github.com:tsaleh/vim-align.git
+[submodule "vim/bundle/vim-tabular"]
+	path = vim/bundle/vim-tabular
+	url = git@github.com:godlygeek/tabular.git
