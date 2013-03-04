@@ -9,6 +9,16 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   export EDITOR="/usr/bin/mvim"
   export JAVA_HOME=/Library/Java/Home
   export ANDROID_HOME=~/Library/android-sdk-mac_x86
+  
+  if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
+    function chpwd {
+      local SEARCH=' '
+      local REPLACE='%20'
+      local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+      printf '\e]7;%s\a' "$PWD_URL"
+    }
+    chpwd
+  }
 else
   # Linux @Home
   export EDITOR="vim"
@@ -31,7 +41,7 @@ export ZSH_THEME="josh"
 # oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
 export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git ruby rails cap github)
+plugins=(git ruby rails cap github osx)
 source $ZSH/oh-my-zsh.sh
 
 # autocomplete commands will include .hidden files
