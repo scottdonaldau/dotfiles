@@ -71,6 +71,9 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
+" command-t plugin should ignore some stuff from projects
+set wildignore=tmp/cache,*.png,*.gif,*.jpg,*.ico
+
 function! DoPrettyXML()
   " save the filetype so we can restore it later
   let l:origft = &ft
