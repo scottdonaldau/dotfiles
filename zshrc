@@ -41,7 +41,7 @@ export ZSH_THEME="josh"
 # oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
 export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git ruby rails cap github osx)
+plugins=(git bundler)
 source $ZSH/oh-my-zsh.sh
 
 # autocomplete commands will include .hidden files
@@ -53,21 +53,11 @@ bindkey \^U backward-kill-line
 # Customize to your needs...
 setopt NOCORRECTALL
 [ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
-alias sl=ls # often screw this up
-alias la='ls -Al'
-alias gd='git diff'
-alias gdv='git diff | vi -'
-alias be='bundle exec'
-alias bake='bundle exec rake'
 alias tail='tail -40'
 
 # git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
-function git_current_branch() {
-  git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
-}
-alias gpush='git push origin HEAD:$(git_current_branch)'
 alias grb='git rebase -p'
-alias gpull='git fetch origin && grb origin/$(git_current_branch)'
+alias gpull='git fetch origin && grb origin/$(current_branch)'
 alias gm='git merge --no-ff'
 alias gpnp='gpull && gpush'
 # all in one super git stash and do - inspired from Dam5s aliases
