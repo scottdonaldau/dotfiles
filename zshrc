@@ -60,7 +60,6 @@ alias gdv='git diff | vi -'
 alias be='bundle exec'
 alias bake='bundle exec rake'
 alias tail='tail -40'
-alias ack='ack -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp --ignore-dir www/assets --ignore-dir public --ignore-dir app/assets/javascripts/lib'
 
 # git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
 function git_current_branch() {
