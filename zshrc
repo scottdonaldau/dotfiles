@@ -19,6 +19,8 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
     }
     chpwd
   }
+  alias md5sum='md5 -r'
+  alias sha1sum='openssl sha1'
 else
   # Linux @Home
   export EDITOR="vim"
@@ -55,6 +57,7 @@ setopt NOCORRECTALL
 [ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
 alias tail='tail -40'
 
+# git kitchen
 # git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
 alias grb='git rebase -p'
 alias gpull='git fetch origin && grb origin/$(current_branch)'
