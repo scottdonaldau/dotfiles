@@ -1,0 +1,13 @@
+
+#https://github.com/roderik/dotfiles/blob/master/.brew
+
+cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+mkdir -p ~/.rbenv/plugins
+cd ~/.rbenv/plugins
+git clone git://github.com/sstephenson/ruby-build.git
+export PATH="$HOME/.rbenv/bin:$PATH"
+rbenv rehash
+rbenv install 1.9.3-p374
+rbenv rehash
+rbenv global 1.9.3-p374

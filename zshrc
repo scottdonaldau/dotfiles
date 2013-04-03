@@ -6,7 +6,7 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   # MacOS @Work
   export RHO_HOME=~/.rvm/gems/ruby-1.9.2-p290@rhodes/gems/rhodes-3.2.1
   #export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim" # mvim -v does not work with programs like crontab
-  export EDITOR="/usr/bin/mvim"
+  export EDITOR="mvim"
   export JAVA_HOME=/Library/Java/Home
   export ANDROID_HOME=~/Library/android-sdk-mac_x86
   
@@ -30,8 +30,8 @@ else
 fi
 
 # fix/stuff the PATH
-export PATH=/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export PATH=/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Quit unless interactive session
 [ -z "$PS1" ] && return
@@ -43,7 +43,7 @@ export ZSH_THEME="josh"
 # oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
 export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git bundler autojump)
+plugins=(git bundler autojump rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # autocomplete commands will include .hidden files
@@ -68,7 +68,3 @@ alias gsl='git stash list'
 alias gspull='git stash && gpull && git stash pop || true'
 alias gspnp='gspull && gpush'
 
-# and rvm...
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

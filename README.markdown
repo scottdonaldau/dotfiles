@@ -1,17 +1,35 @@
-### Installation
+## fresh machine - install git !
 
-    git clone git@github.com:jobwat/dotfiles.git ~/.dotfiles
-    cd ~/.dotfiles
-    git submodule update --init
-    rake install
+    sudo apt-get install git
 
-Changing shells:
+on a Mac, go brew
+```
+ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+brew update
+brew upgrade
+brew install git
+
+```
+
+## Installation
+
+```
+git clone git@github.com:jobwat/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+git submodule update --init
+rake install
+```
+
+## Later usage
+
+### Changing shells:
 
     chsh -s /bin/zsh
 
 or back to bash:
 
     chsh -s /bin/bash
+
 
 ### Adding a plugin
 
@@ -23,4 +41,5 @@ or back to bash:
 
 ### Acknowledgements
 
-Thanks to [Ryan Bates]( http://github.com/ryanb/dotfiles) for the Rakefile code and [James Sadler](http://github.com/freshtonic/dotfiles) for the pathogen and bundle ideas.
+Thanks to [Ryan Bates]( http://github.com/ryanb/dotfiles) for the Rakefile code, [James Sadler](http://github.com/freshtonic/dotfiles) for the pathogen and bundle ideas, [Zach Holman](https://github.com/holman/dotfiles.git) and many others for their brilliant ideas :)
+
