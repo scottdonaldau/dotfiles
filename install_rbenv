@@ -1,13 +1,15 @@
-
-#https://github.com/roderik/dotfiles/blob/master/.brew
-
-cd
-git clone git://github.com/sstephenson/rbenv.git .rbenv
-mkdir -p ~/.rbenv/plugins
-cd ~/.rbenv/plugins
-git clone git://github.com/sstephenson/ruby-build.git
-export PATH="$HOME/.rbenv/bin:$PATH"
-rbenv rehash
-rbenv install 1.9.3-p374
-rbenv rehash
-rbenv global 1.9.3-p374
+# https://gist.github.com/jasoncodes/1223731
+ 
+VERSION=1.9.3-p374
+brew update
+brew install rbenv ruby-build rbenv-vars readline ctags
+if [ -n "${ZSH_VERSION:-}" ]; then
+  echo 'eval "$(rbenv init - --no-rehash)"' >> ~/.zshrc
+else
+  echo 'eval "$(rbenv init - --no-rehash)"' >> ~/.bash_profile
+fi
+eval "$(rbenv init - --no-rehash)" # load rbenv in the current shell
+CONFIGURE_OPTS="--disable-install-doc --with-readline-dir=$(brew --prefix readline)" rbenv install $VERSION
+rbenv global $VERSION
+gem install --no-ri --no-rdoc bundler rbenv-rehash git-up hitch gem-browse gem-ctags cheat awesome_print pry
+gem ctags
