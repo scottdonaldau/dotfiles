@@ -29,7 +29,7 @@ export EDITOR="vim"
 
 # fix/stuff the PATH
 export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-export PATH=/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/.dotfiles/bin:/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Quit unless interactive session
 [ -z "$PS1" ] && return
