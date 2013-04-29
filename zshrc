@@ -43,6 +43,7 @@ export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git bundler autojump rbenv)
 source $ZSH/oh-my-zsh.sh
+zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini
 
 # autocomplete commands will include .hidden files
 setopt glob_dots
