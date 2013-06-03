@@ -1,4 +1,4 @@
-# [non-interactive included] some more aliases
+
 [ -f ${HOME}/scripts/sys-utils/my.rc ] && source ${HOME}/scripts/sys-utils/my.rc
 
 unamestr=`uname`
@@ -20,7 +20,6 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   alias sha1sum='openssl sha1'
 else
   # Linux @Home
-  source /usr/share/autojump/autojump.zsh
   export JAVA_HOME=/usr/lib/jvm/java-6-sun
   export ANDROID_HOME=~/dev/android-sdk-linux_x86
 fi
