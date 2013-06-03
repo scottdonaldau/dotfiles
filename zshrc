@@ -28,7 +28,7 @@ export EDITOR="vim"
 
 # fix/stuff the PATH
 export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-export PATH=/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/.dotfiles/bin:/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Quit unless interactive session
 [ -z "$PS1" ] && return
@@ -42,6 +42,7 @@ export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git bundler autojump rbenv)
 source $ZSH/oh-my-zsh.sh
+zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini
 
 # autocomplete commands will include .hidden files
 setopt glob_dots
