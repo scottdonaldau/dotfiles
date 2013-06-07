@@ -12,7 +12,7 @@ map <leader>= <Esc>:1,$!xmllint --format -<CR>  " use ',=' to xml re-indent
 nnoremap <leader>k :set invwrap wrap?<CR>  " use ',l' to toggle wordwrap
 nnoremap <leader>d :NERDTreeToggle<CR>  " use ',d' to toggle the NERDTree
 "let g:ackprg="ack -H --nocolor --nogroup --column -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp --ignore-dir public/assets --ignore-dir public/images"
-let g:ackprg="ack -a -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
+let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
 map <leader>F :Ack<space>
 set pastetoggle=<leader>;
 
