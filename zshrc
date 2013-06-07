@@ -54,7 +54,6 @@ bindkey \^U backward-kill-line
 # Customize to your needs...
 setopt NOCORRECTALL
 [ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
-alias tail='tail -40'
 
 # git kitchen
 # git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
