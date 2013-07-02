@@ -72,7 +72,7 @@ set expandtab
 set laststatus=2
 
 " command-t plugin should ignore some stuff from projects
-set wildignore=tmp/cache,*.png,*.gif,*.jpg,*.ico
+set wildignore=tmp/cache,betfair.xcodeproj/**,betfair/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -126,10 +126,6 @@ filetype plugin on
 
 " mapping to change the working directory to the current file path
 nnoremap ,cd :lcd %:p:h<CR>
-
-" highlight when line longer than 80 columns
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 
 " associate specific extensions with specific filetypes
 au BufRead,BufNewFile *.rc set filetype=sh
