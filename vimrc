@@ -72,7 +72,7 @@ set expandtab
 set laststatus=2
 
 " command-t plugin should ignore some stuff from projects
-set wildignore=tmp/cache,betfair.xcodeproj/**,betfair/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico
+set wildignore=tmp/cache,BUILD*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
