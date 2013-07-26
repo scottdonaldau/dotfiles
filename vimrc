@@ -128,8 +128,8 @@ filetype plugin on
 nnoremap ,cd :lcd %:p:h<CR>
 
 " associate specific extensions with specific filetypes
-au BufRead,BufNewFile *.rc set filetype=sh
-au BufRead,BufNewFile *.hamlc,*.hamstache set ft=haml
+autocmd BufRead,BufNewFile *.rc set filetype=sh
+autocmd BufRead,BufNewFile *.hamlc,*.hamstache set filetype=haml
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Delete file from current buffer
