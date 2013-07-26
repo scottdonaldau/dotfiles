@@ -64,4 +64,6 @@ alias gpnp='gpull && gpush'
 alias gsl='git stash list'
 alias gspull='git stash && gpull && git stash pop || true'
 alias gspnp='gspull && gpush'
+# some hub extra alias for github
+alias gpr='hub pull-request -h $(current_repository | sed -E "s#^([^/]+)/.*#\1#"):$(current_branch)'
 
