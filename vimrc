@@ -1,5 +1,4 @@
-" configure vim pathogen
-" http://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim
+" configure vim pathogen - http://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim
 filetype on " solves pathogen exit status 1 bug - http://tooky.github.com/2010/04/08/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x.html
 filetype off
 call pathogen#helptags()
@@ -7,15 +6,18 @@ call pathogen#incubate()
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
-map <leader>s :%s/\s\+$//e \| :%s/\t/  /e<CR><C-o>  " use ',s' to clean trailing spaces and remove tabs
-map <leader>= <Esc>:1,$!xmllint --format -<CR>  " use ',=' to xml re-indent
-nnoremap <leader>k :set invwrap wrap?<CR>  " use ',l' to toggle wordwrap
-nnoremap <leader>d :NERDTreeToggle<CR>  " use ',d' to toggle the NERDTree
-"let g:ackprg="ack -H --nocolor --nogroup --column -a --ignore-dir log --ignore-dir coverage --ignore-dir tmp --ignore-dir public/assets --ignore-dir public/images"
-let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
-map <leader>F :Ack<space>
+" ',s' to clean trailing spaces and remove tabs
+map <leader>s :%s/\s\+$//e \| :%s/\t/  /e<CR><C-o>  
+" ',=' to xml re-indent
+map <leader>= <Esc>:1,$!xmllint --format -<CR>
+" ',l' to toggle wordwrap
+nnoremap <leader>k :set invwrap wrap?<CR>
+" ',d' to toggle the NERDTree
+nnoremap <leader>d :NERDTreeToggle<CR>  
+" ',;' to toggle paste mode
 set pastetoggle=<leader>;
 
+" ',p' put current buffer filepath to the clipboard
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
   " Do Mac stuff here
@@ -27,10 +29,10 @@ else
   nmap <leader>p :!echo "%:p" \|xsel -ib<CR><CR>
 endif
 
-set ignorecase " we don't the case on the search
-set smartcase " in fact we do care the case unless search is all lowercased
+" :Ack configuration
+let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
 
-" notepad++ style bookmarks -- bookmarking extension
+" notepad++ style bookmarks (nobody's perfect) -- bookmarking extension
 :map 22 :ToggleBookmark<CR>
 :map <C-2> :NextBookmark<CR>
 :map <C-@> :PreviousBookmark<CR>
@@ -39,20 +41,18 @@ set smartcase " in fact we do care the case unless search is all lowercased
 :vmap "" S"
 :vmap '' S'
 
-" :help usr05
-set nocompatible
-set backspace=indent,eol,start
-set autoindent
-set history=100
-set cmdwinheight=50
-if &t_Co > 2 || has("gui_running")
-  syntax on
-endif
-set ruler
-set wrap
-
 " set options
+set nocompatible " needed by some plugins
+set backspace=indent,eol,start
+set autoindent " auto-indend at new line
+set history=100 " default is 20
+set cmdwinheight=50 " number of line of the Command Window (used by :Ack results)
+set ruler " show <row>,<column> position on the right of the status bar
+set wrap " word wrapping is on by default
+syntax on "syntax highlighting
 set nobackup       " no backup files
+set ignorecase " we don't the case on the search
+set smartcase " in fact we do care the case unless search is all lowercased
 set nowritebackup  " only in case you don't want a backup file while editing
 set noswapfile     " no swap files
 set showcmd  	" display incomplete commands
@@ -61,19 +61,15 @@ set number    " display line numbers
 set showmatch  " show matching bracket
 set foldmethod=indent   " folding is available following indentation
 set nofoldenable    " disable folding by default
+set laststatus=2 " Always display the status line
+set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
+set wildignore=tmp/cache,BUILD*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico " ignore some files (used by command-t plugin)
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set expandtab
-" set tw=72 " when the line will wrap
 
-" Always display the status line
-set laststatus=2
+" -- some functions --
 
-" command-t plugin should ignore some stuff from projects
-set wildignore=tmp/cache,*.png,*.gif,*.jpg,*.ico
 
+" DoPrettyXML beautifies an XML buffer (XML must be valid)
 function! DoPrettyXML()
   " save the filetype so we can restore it later
   let l:origft = &ft
@@ -104,6 +100,7 @@ endfunction
 command! PrettyXML :call DoPrettyXML()
 command! BeautifyXML :call DoPrettyXML()
 
+" RePackXML de-beautify an XML buffer (compact style)
 function! RePackXML()
   " remove extra space at beginning of lines
   %s/^\s\+//e
@@ -115,29 +112,18 @@ endfunction
 command! PackXML :call RePackXML()
 command! RePackXML :call RePackXML()
 
-function! AlignHash()
-  "'<,'>s/, /\r/g
-  '<,'>Align =>
-endfunction
-command! AlignHash :call AlignHash()
-
 " activate plugin for matchit (don't really know if it's a good idea to let that here though)
 filetype plugin on
 
 " mapping to change the working directory to the current file path
 nnoremap ,cd :lcd %:p:h<CR>
 
-" highlight when line longer than 80 columns
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 " associate specific extensions with specific filetypes
-au BufRead,BufNewFile *.rc set filetype=sh
-au BufRead,BufNewFile *.hamlc,*.hamstache set ft=haml
+autocmd BufRead,BufNewFile *.rc set filetype=sh
+autocmd BufRead,BufNewFile *.hamlc,*.hamstache set filetype=haml
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
-" Delete file from current buffer
-" from http://vim.wikia.com/wiki/Delete_files_with_a_Vim_command
+" Delete file from current buffer - from http://vim.wikia.com/wiki/Delete_files_with_a_Vim_command
 function! DeleteFile(...)
   if(exists('a:1'))
     let theFile=a:1
@@ -164,112 +150,3 @@ com! Rm call DeleteFile()
 "delete the file and quit the buffer (quits vim if this was the last file)
 com! RM call DeleteFile() <Bar> q!
 
-"----
-
-" Delete buffer while keeping window layout (don't close buffer's windows).
-" Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
-if v:version < 700 || exists('loaded_bclose') || &cp
-  finish
-endif
-let loaded_bclose = 1
-if !exists('bclose_multiple')
-  let bclose_multiple = 1
-endif
-" Display an error message.
-function! s:Warn(msg)
-  echohl ErrorMsg
-  echomsg a:msg
-  echohl NONE
-endfunction
-" Command ':Bclose' executes ':bd' to delete buffer in current window.
-" The window will show the alternate buffer (Ctrl-^) if it exists,
-" or the previous buffer (:bp), or a blank buffer if no previous.
-" Command ':Bclose!' is the same, but executes ':bd!' (discard changes).
-" An optional argument can specify which buffer to close (name or number).
-function! s:Bclose(bang, buffer)
-  if empty(a:buffer)
-    let btarget = bufnr('%')
-  elseif a:buffer =~ '^\d\+$'
-    let btarget = bufnr(str2nr(a:buffer))
-  else
-    let btarget = bufnr(a:buffer)
-  endif
-  if btarget < 0
-    call s:Warn('No matching buffer for '.a:buffer)
-    return
-  endif
-  if empty(a:bang) && getbufvar(btarget, '&modified')
-    call s:Warn('No write since last change for buffer '.btarget.' (use :Bclose!)')
-    return
-  endif
-  " Numbers of windows that view target buffer which we will delete.
-  let wnums = filter(range(1, winnr('$')), 'winbufnr(v:val) == btarget')
-  if !g:bclose_multiple && len(wnums) > 1
-    call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
-    return
-  endif
-  let wcurrent = winnr()
-  for w in wnums
-    execute w.'wincmd w'
-    let prevbuf = bufnr('#')
-    if prevbuf > 0 && buflisted(prevbuf) && prevbuf != w
-      buffer #
-    else
-      bprevious
-    endif
-    if btarget == bufnr('%')
-      " Numbers of listed buffers which are not the target to be deleted.
-      let blisted = filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != btarget')
-      " Listed, not target, and not displayed.
-      let bhidden = filter(copy(blisted), 'bufwinnr(v:val) < 0')
-      " Take the first buffer, if any (could be more intelligent).
-      let bjump = (bhidden + blisted + [-1])[0]
-      if bjump > 0
-        execute 'buffer '.bjump
-      else
-        execute 'enew'.a:bang
-      endif
-    endif
-  endfor
-  execute 'bdelete'.a:bang.' '.btarget
-  execute wcurrent.'wincmd w'
-endfunction
-command! -bang -complete=buffer -nargs=? Bclose call s:Bclose('<bang>', '<args>')
-nnoremap <silent> <Leader>bd :Bclose<CR>
-
-" ---
-
-" get rid of all non visible but open buffers
-function! Wipeout()
-  " list of *all* buffer numbers
-  let l:buffers = range(1, bufnr('$'))
-
-  " what tab page are we in?
-  let l:currentTab = tabpagenr()
-  try
-    " go through all tab pages
-    let l:tab = 0
-    while l:tab < tabpagenr('$')
-      let l:tab += 1
-
-      " go through all windows
-      let l:win = 0
-      while l:win < winnr('$')
-        let l:win += 1
-        " whatever buffer is in this window in this tab, remove it from
-        " l:buffers list
-        let l:thisbuf = winbufnr(l:win)
-        call remove(l:buffers, index(l:buffers, l:thisbuf))
-      endwhile
-    endwhile
-
-    " if there are any buffers left, delete them
-    if len(l:buffers)
-      execute 'bwipeout' join(l:buffers)
-    endif
-  finally
-    " go back to our original tab page
-    execute 'tabnext' l:currentTab
-  endtry
-endfunction
- 
