@@ -5,3 +5,4 @@
 --ignore-dir=public
 --ignore-dir=app/assets/javascripts/lib
 --ignore-dir=spec/fixtures
+--ignore-dir=cache
