@@ -63,7 +63,7 @@ set foldmethod=indent   " folding is available following indentation
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
-set wildignore=tmp/cache,BUILD*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico " ignore some files (used by command-t plugin)
+set wildignore=tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico " ignore some files (used by command-t plugin)
 
 
 " -- some functions --
