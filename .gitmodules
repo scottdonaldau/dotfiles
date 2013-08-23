@@ -57,9 +57,6 @@
 [submodule "vim/bundle/vim-up-and-down"]
 	path = vim/bundle/vim-up-and-down
 	url = https://github.com/vim-scripts/upAndDown.git
-[submodule "vim/bundle/vim-css-color"]
-	path = vim/bundle/vim-css-color
-	url = https://github.com/bdesham/vim-css-color.git
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
@@ -82,3 +79,6 @@
 	path = vim/bundle/nginx-vim-syntax
 	url = git@github.com:evanmiller/nginx-vim-syntax.git
   ignore = dirty
+[submodule "vim/bundle/vim-css-color"]
+	path = vim/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color.git
