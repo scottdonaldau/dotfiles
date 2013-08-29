@@ -6,6 +6,8 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   # MacOS @Work
   export JAVA_HOME=/Library/Java/Home
   export ANDROID_HOME=~/Library/android-sdk-mac_x86
+  export NODEJS=/usr/local/share/npm
+  export PATH=$NODEJS/bin:$PATH
   
   if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
     function chpwd {
