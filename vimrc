@@ -22,11 +22,13 @@ let s:uname = system("uname")
 if s:uname == "Darwin\n"
   " Do Mac stuff here
   colorscheme railscasts
-  nmap <leader>p :let @* = expand("%:p")<CR> " use ',p' to copy the current path to the system clipboard
+  nmap <leader>p :let @* = expand("%:.")<CR> " use ',p' to copy the current file relative path to the system clipboard
+  nmap <leader>P :let @* = expand("%:p")<CR> " use ',P' to copy the current file absolute path to the system clipboard
 else
   " Do Linux Specifc here (gvim)
   colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...
-  nmap <leader>p :!echo "%:p" \|xsel -ib<CR><CR>
+  nmap <leader>p :!echo "%:." \|xsel -ib<CR><CR>
+  nmap <leader>P :!echo "%:p" \|xsel -ib<CR><CR>
 endif
 
 " :Ack configuration
