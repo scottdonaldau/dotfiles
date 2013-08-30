@@ -46,7 +46,7 @@
 	url = https://github.com/depuracao/vim-rdoc.git
 [submodule "vim/bundle/vim-nerdcommenter"]
 	path = vim/bundle/vim-nerdcommenter
-	url = https://github.com/ddollar/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
