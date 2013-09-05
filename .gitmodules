@@ -59,10 +59,10 @@
 	url = https://github.com/Townk/vim-autoclose.git
 [submodule "vim/bundle/vim-align"]
 	path = vim/bundle/vim-align
-	url = https://github.com:tsaleh/vim-align.git
+	url = https://github.com/tsaleh/vim-align.git
 [submodule "vim/bundle/vim-tabular"]
 	path = vim/bundle/vim-tabular
-	url = https://github.com:godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = https://github.com/rogerz/vim-json.git
@@ -71,7 +71,7 @@
 	url = https://github.com/rodjek/vim-puppet
 [submodule "vim/bundle/nginx-vim-syntax"]
 	path = vim/bundle/nginx-vim-syntax
-	url = git@github.com:evanmiller/nginx-vim-syntax.git
+	url = https://github.com/evanmiller/nginx-vim-syntax.git
   ignore = dirty
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
