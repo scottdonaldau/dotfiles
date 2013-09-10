@@ -152,3 +152,5 @@ com! Rm call DeleteFile()
 "delete the file and quit the buffer (quits vim if this was the last file)
 com! RM call DeleteFile() <Bar> q!
 
+" Force write the file using sudo permissions
+command W w !sudo tee % > /dev/null
