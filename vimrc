@@ -153,4 +153,6 @@ com! Rm call DeleteFile()
 com! RM call DeleteFile() <Bar> q!
 
 " Force write the file using sudo permissions
-command W w !sudo tee % > /dev/null
+command Sudow w !sudo tee % > /dev/null
+" Often type W instead of w
+command W w
