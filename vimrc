@@ -7,7 +7,7 @@ call pathogen#incubate()
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
 " ',s' to clean trailing spaces and remove tabs
-map <leader>s :%s/\s\+$//e \| :%s/\t/  /e<CR><C-o>  
+map <leader>s :%s/\s\+$//e \| :%s/\t/  /ge<CR><C-o>  
 " ',=' to xml re-indent
 map <leader>= <Esc>:1,$!xmllint --format -<CR>
 " ',l' to toggle wordwrap
@@ -153,4 +153,6 @@ com! Rm call DeleteFile()
 com! RM call DeleteFile() <Bar> q!
 
 " Force write the file using sudo permissions
-command W w !sudo tee % > /dev/null
+command Sudow w !sudo tee % > /dev/null
+" Often type W instead of w
+command W w
