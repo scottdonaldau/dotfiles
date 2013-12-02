@@ -71,5 +71,9 @@ alias gpr='hub pull-request -h $(current_repository | sed -E "s#^([^/]+)/.*#\1#"
 # some more advanced one (lazy people only) -- http://stackoverflow.com/questions/6127328
 alias gplb='git checkout master && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
+# refine some other aliases
+alias glg='git log --stat --max-count=15'
+alias glgg='git log --graph --max-count=15'
+
 # another specific alias for bundle opening in my nice vim
 alias bo="EDITOR=mvim bundle open"
