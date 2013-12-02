@@ -156,3 +156,6 @@ com! RM call DeleteFile() <Bar> q!
 command Sudow w !sudo tee % > /dev/null
 " Often type W instead of w
 command W w
+" Show/Hide special characters (can't remember that 'list' toggle)
+command ShowSpecialCharacters set list
+command HideSpecialCharacters set nolist
