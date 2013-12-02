@@ -32,7 +32,7 @@ else
 endif
 
 " :Ack configuration
-let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
+let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir .sass-cache --ignore-dir build"
 
 " notepad++ style bookmarks (nobody's perfect) -- bookmarking extension
 :map 22 :ToggleBookmark<CR>
