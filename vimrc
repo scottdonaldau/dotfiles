@@ -46,7 +46,8 @@ let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir 
 " set options
 set nocompatible " needed by some plugins
 set backspace=indent,eol,start
-set autoindent " auto-indend at new line
+set autoindent sw=2 et " auto-indend at new line
+set list " show special characters
 set history=100 " default is 20
 set cmdwinheight=50 " number of line of the Command Window (used by :Ack results)
 set ruler " show <row>,<column> position on the right of the status bar
@@ -65,7 +66,7 @@ set foldmethod=indent   " folding is available following indentation
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
-set wildignore=tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico " ignore some files (used by command-t plugin)
+set wildignore=public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
 
 
 " -- some functions --
