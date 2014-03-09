@@ -66,7 +66,7 @@ set foldmethod=indent   " folding is available following indentation
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
-set wildignore=public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
+set wildignore=log/**,public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
 
 
 " -- some functions --
@@ -155,8 +155,10 @@ com! RM call DeleteFile() <Bar> q!
 
 " Force write the file using sudo permissions
 command Sudow w !sudo tee % > /dev/null
+"
 " Often type W instead of w
 command W w
+
 " Show/Hide special characters (can't remember that 'list' toggle)
 command ShowSpecialCharacters set list
 command HideSpecialCharacters set nolist
