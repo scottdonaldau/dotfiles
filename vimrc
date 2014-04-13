@@ -153,9 +153,9 @@ com! Rm call DeleteFile()
 "delete the file and quit the buffer (quits vim if this was the last file)
 com! RM call DeleteFile() <Bar> q!
 
+" Let's stay lazy !
 " Force write the file using sudo permissions
 command Sudow w !sudo tee % > /dev/null
-"
 " Often type W instead of w
 command W w
 
