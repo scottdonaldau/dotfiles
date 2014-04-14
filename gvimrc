@@ -12,14 +12,23 @@ if s:uname == "Darwin\n"
 else
 
   " Do Linux Specifc here
+  set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
+  set guifont=Monospace\ 10
+  colorscheme railscasts
 
-  set guifont=Monospace\ 9
-
-  " forcing terminal style Copy/Paste shortcuts to work the same
+  " forcing terminal style Copy/Paste shortcuts
   map <S-C-x> "+x
   map <S-C-c> "+y
   " map <S-C-v> "+gP
   imap <S-C-v> <Esc>"+gpi
+  " forcing Mac style Copy/Paste shortcuts
+  map <M-x> "+x
+  map <M-c> "+y
+  map <M-v> "+gP
+  imap <M-v> <Esc>"+gpi
+  " and other Mac style shortcuts
+  map <M-w> q
+  imap <M-w> q
 
 endif
 
