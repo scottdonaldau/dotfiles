@@ -32,7 +32,7 @@ else
 endif
 
 " :Ack configuration
-let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir public"
+let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir .sass-cache --ignore-dir build"
 
 " notepad++ style bookmarks (nobody's perfect) -- bookmarking extension
 :map 22 :ToggleBookmark<CR>
@@ -46,7 +46,8 @@ let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir 
 " set options
 set nocompatible " needed by some plugins
 set backspace=indent,eol,start
-set autoindent " auto-indend at new line
+set autoindent sw=2 et " auto-indend at new line
+set list " show special characters
 set history=100 " default is 20
 set cmdwinheight=50 " number of line of the Command Window (used by :Ack results)
 set ruler " show <row>,<column> position on the right of the status bar
@@ -65,7 +66,7 @@ set foldmethod=indent   " folding is available following indentation
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
-set wildignore=tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.ico " ignore some files (used by command-t plugin)
+set wildignore=log/**,public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
 
 
 " -- some functions --
@@ -152,7 +153,12 @@ com! Rm call DeleteFile()
 "delete the file and quit the buffer (quits vim if this was the last file)
 com! RM call DeleteFile() <Bar> q!
 
+" Let's stay lazy !
 " Force write the file using sudo permissions
 command Sudow w !sudo tee % > /dev/null
 " Often type W instead of w
 command W w
+
+" Show/Hide special characters (can't remember that 'list' toggle)
+command ShowSpecialCharacters set list
+command HideSpecialCharacters set nolist

@@ -30,7 +30,7 @@ export EDITOR="vim"
 
 # fix/stuff the PATH
 export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-export PATH=$HOME/.dotfiles/bin:/opt/bin:/opt/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/.dotfiles/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Quit unless interactive session
 [ -z "$PS1" ] && return
@@ -70,6 +70,10 @@ alias gspnp='gspull && gpush'
 alias gpr='hub pull-request -h $(current_repository | sed -E "s#^([^/]+)/.*#\1#"):$(current_branch)'
 # some more advanced one (lazy people only) -- http://stackoverflow.com/questions/6127328
 alias gplb='git checkout master && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+
+# refine some other aliases
+alias glg='git log --stat --max-count=15'
+alias glgg='git log --graph --max-count=15'
 
 # another specific alias for bundle opening in my nice vim
 alias bo="EDITOR=mvim bundle open"
