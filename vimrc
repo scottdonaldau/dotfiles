@@ -24,6 +24,7 @@ if s:uname == "Darwin\n"
   colorscheme railscasts
   nmap <leader>p :let @* = expand("%:.")<CR> " use ',p' to copy the current file relative path to the system clipboard
   nmap <leader>P :let @* = expand("%:p")<CR> " use ',P' to copy the current file absolute path to the system clipboard
+
 else
   " Do Linux Specifc here (gvim)
   colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...

@@ -8,6 +8,11 @@ if s:uname == "Darwin\n"
   " Do Mac stuff here
 
   set guifont=Monaco:h12
+  "
+  " override the default buffer close - https://github.com/nathanaelkane/vim-command-w
+  macmenu &File.Close key=<nop>
+  nmap <D-w> :CommandW<CR>
+  imap <D-w> <Esc>:CommandW<CR>
 
 else
 

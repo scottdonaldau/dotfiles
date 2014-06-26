@@ -87,3 +87,9 @@
 [submodule "vim/bundle/file-line"]
 	path = vim/bundle/file-line
 	url = https://github.com/bogado/file-line.git
+[submodule "vim/bundle/bufkill.vim"]
+	path = vim/bundle/bufkill.vim
+	url = https://github.com/vim-scripts/bufkill.vim.git
+[submodule "vim/bundle/vim-command-w"]
+	path = vim/bundle/vim-command-w
+	url = git://github.com/nathanaelkane/vim-command-w.git
