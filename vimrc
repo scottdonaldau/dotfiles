@@ -1,8 +1,58 @@
-" configure vim pathogen - http://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim
-filetype on " solves pathogen exit status 1 bug - http://tooky.github.com/2010/04/08/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x.html
-filetype off
-call pathogen#helptags()
-call pathogen#incubate()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-haml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kfl62/textile.vim'
+Plugin 'edsono/vim-matchit'
+Plugin 'depuracao/vim-rdoc'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'dterei/VimBookmarking'
+Plugin 'vim-scripts/upAndDown'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tsaleh/vim-align'
+Plugin 'godlygeek/tabular'
+Plugin 'rogerz/vim-json'
+Plugin 'rodjek/vim-puppet'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tpope/vim-fugitive'
+Plugin 'derekwyatt/ag.vim'
+Plugin 'honza/vim-snippets'
+Plugin 'bogado/file-line'
+Plugin 'vim-scripts/bufkill.vim'
+Plugin 'nathanaelkane/vim-command-w'
+Plugin 'jpo/vim-railscasts-theme'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
@@ -119,9 +169,6 @@ function! RePackXML()
 endfunction
 command! PackXML :call RePackXML()
 command! RePackXML :call RePackXML()
-
-" activate plugin for matchit (don't really know if it's a good idea to let that here though)
-filetype plugin on
 
 " mapping to change the working directory to the current file path
 nnoremap ,cd :lcd %:p:h<CR>
