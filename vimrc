@@ -60,6 +60,7 @@ set nobackup       " no backup files
 set ignorecase " we don't the case on the search
 set smartcase " in fact we do care the case unless search is all lowercased
 set nowritebackup  " only in case you don't want a backup file while editing
+set hidden " non-visible buffers are just hidden, not closed (keep buffer history)
 set noswapfile     " no swap files
 set showcmd  	" display incomplete commands
 set incsearch  	" do incremental searching
