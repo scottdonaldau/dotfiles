@@ -9,7 +9,7 @@ task :install do
     next if file =~ /^install_/
 
     next if %w[Rakefile README.markdown LICENSE].include? file
-    
+
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
         puts "identical ~/.#{file.sub('.erb', '')}"
@@ -33,11 +33,20 @@ task :install do
       link_file(file)
     end
   end
+
+  # update vim's plugins (via vundle)
+  vundle_update
 end
 
 task :update do
-  system %Q{wget --no-check-certificate --output-document=vim/autoload/pathogen.vim https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim}
   system %Q{git submodule foreach git pull origin master}
+
+  # update vim's plugins (via vundle)
+  vundle_update
+end
+
+def vundle_update
+  system %Q{vim +PluginInstall +qall}
 end
 
 def replace_file(file)
