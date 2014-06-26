@@ -77,3 +77,6 @@ alias glgg='git log --graph --max-count=15'
 
 # another specific alias for bundle opening in my nice vim
 alias bo="EDITOR=mvim bundle open"
+
+# alias for node-webkit
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
