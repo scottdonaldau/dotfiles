@@ -207,10 +207,14 @@ com! RM call DeleteFile() <Bar> q!
 
 " Let's stay lazy !
 " Force write the file using sudo permissions
-command Sudow w !sudo tee % > /dev/null
+command! Sudow w !sudo tee % > /dev/null
 " Often type W instead of w
-command W w
+command! W w
+" Ex is not Explore only anymore... - http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
+command! Ex Explore
+" Often typing E instead of e"
+command! E e
 
 " Show/Hide special characters (can't remember that 'list' toggle)
-command ShowSpecialCharacters set list
-command HideSpecialCharacters set nolist
+command! ShowSpecialCharacters set list
+command! HideSpecialCharacters set nolist
