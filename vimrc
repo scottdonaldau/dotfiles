@@ -38,7 +38,6 @@ Plugin 'derekwyatt/ag.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'bogado/file-line'
 Plugin 'vim-scripts/bufkill.vim'
-Plugin 'nathanaelkane/vim-command-w'
 Plugin 'jpo/vim-railscasts-theme'
 
 " All of your Plugins must be added before the following line
