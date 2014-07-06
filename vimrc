@@ -39,6 +39,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'bogado/file-line'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'jpo/vim-railscasts-theme'
+Plugin 'vim-scripts/vibrantink'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
