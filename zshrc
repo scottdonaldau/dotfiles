@@ -8,7 +8,7 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   export ANDROID_HOME=~/Library/android-sdk-mac_x86
   export NODEJS=/usr/local/share/npm
   export PATH=$NODEJS/bin:$PATH
-  
+
   if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
     function chpwd {
       local SEARCH=' '
@@ -20,6 +20,14 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   }
   alias md5sum='md5 -r'
   alias sha1sum='openssl sha1'
+  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+
+  # another specific alias for bundle opening in my nice vim
+  alias bo="EDITOR=mvim bundle open"
+
+  # alias for node-webkit
+  alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+
 else
   # Linux @Home
   export JAVA_HOME=/usr/lib/jvm/java-6-sun
@@ -75,8 +83,5 @@ alias gplb='git checkout master && git branch --merged | grep -v "\*" | xargs -n
 alias glg='git log --stat --max-count=15'
 alias glgg='git log --graph --max-count=15'
 
-# another specific alias for bundle opening in my nice vim
-alias bo="EDITOR=mvim bundle open"
-
-# alias for node-webkit
-alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+# tmux re-attach made easy
+alias tm='tmux list-sessions && tmux attach || tmux'
