@@ -34,6 +34,13 @@ task :install do
     end
   end
 
+  # get submodules
+  system %Q{git submodule init}
+  system %Q{git submodule update}
+
+  # install vundle
+  system %Q{git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim}
+
   # update vim's plugins (via vundle)
   vundle_update
 end
