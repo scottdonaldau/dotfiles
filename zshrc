@@ -22,9 +22,6 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   alias sha1sum='openssl sha1'
   alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
-  # another specific alias for bundle opening in my nice vim
-  alias bo="EDITOR=mvim bundle open"
-
   # alias for node-webkit
   alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 
@@ -56,6 +53,14 @@ zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini id_rsa_test id_rsa_ldellou
 
 # autocomplete commands will include .hidden files
 setopt glob_dots
+
+if [[ "$unamestr" =~ 'Darwin' ]]; then
+  # MacOS @Work
+
+  # another specific alias for bundle opening in my nice vim - loaded after oh-my-zsh
+  alias bo="EDITOR=mvim bundle open"
+
+fi
 
 # bind Bash comportment for Ctrl+U (clears beginning of the line)
 bindkey \^U backward-kill-line
