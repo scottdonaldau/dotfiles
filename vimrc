@@ -40,6 +40,7 @@ Plugin 'bogado/file-line'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'vim-scripts/vibrantink'
+Plugin 'joker1007/vim-ruby-heredoc-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -221,3 +222,10 @@ command! E e
 " Show/Hide special characters (can't remember that 'list' toggle)
 command! ShowSpecialCharacters set list
 command! HideSpecialCharacters set nolist
+
+" Add syntax rule
+let g:ruby_heredoc_syntax_filetypes = {
+        \ "xml" : {
+        \   "start" : "XML",
+        \},
+  \}
