@@ -33,5 +33,25 @@ else
   "map <M-s> w
   "imap <M-s> w
 
+  " Ctrl-A selects all
+  map <C-a> ggVG
+  imap <C-a> <Esc>ggVG
+  vmap <C-a> <Esc>ggVG
+
+  " Ctrl-S saves the current buffer
+  map <C-s> :w<CR>
+  imap <C-s> <Esc>:w<CR>a
+  vmap <C-s> <Esc>:w<CR>gv
+
+  " Ctrl-A selects all
+  map <C-a> ggVG
+  imap <C-a> <Esc>ggVG
+  vmap <C-a> <Esc>ggVG
+
+  " Ctrl-S saves the current buffer
+  map <C-s> :w<CR>
+  imap <C-s> <Esc>:w<CR>a
+  vmap <C-s> <Esc>:w<CR>gv
+
 endif
 
