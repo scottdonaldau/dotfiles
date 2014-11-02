@@ -1,13 +1,30 @@
-
-[ -f ${HOME}/scripts/sys-utils/my.rc ] && source ${HOME}/scripts/sys-utils/my.rc
-
 unamestr=`uname`
 if [[ "$unamestr" =~ 'Darwin' ]]; then
-  # MacOS @Work
-  export JAVA_HOME=/Library/Java/Home
-  export ANDROID_HOME=~/Library/android-sdk-mac_x86
-  export NODEJS=/usr/local/share/npm
-  export PATH=$NODEJS/bin:$PATH
+  # MacOS
+
+  # Keypad from USB keyboard needs help under zsh since Yosemite (10.10) update
+  # thx Robin Daugherty - http://superuser.com/a/830850/91702
+  # 0 . Enter
+  bindkey -s "^[Op" "0"
+  bindkey -s "^[On" "." 
+  bindkey -s "^[OM" "^M"
+  # 1 2 3
+  bindkey -s "^[Oq" "1"
+  bindkey -s "^[Or" "2"
+  bindkey -s "^[Os" "3"
+  # 4 5 6
+  bindkey -s "^[Ot" "4"
+  bindkey -s "^[Ou" "5"
+  bindkey -s "^[Ov" "6"
+  # 7 8 9
+  bindkey -s "^[Ow" "7"
+  bindkey -s "^[Ox" "8"
+  bindkey -s "^[Oy" "9"
+  # + -  * /
+  bindkey -s "^[Ol" "+"
+  bindkey -s "^[Om" "-"
+  bindkey -s "^[Oj" "*"
+  bindkey -s "^[Oo" "/"
 
   if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
     function chpwd {
@@ -18,24 +35,10 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
     }
     chpwd
   }
-  alias md5sum='md5 -r'
-  alias sha1sum='openssl sha1'
-  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
-  # alias for node-webkit
-  alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
-
-else
-  # Linux @Home
-  export JAVA_HOME=/usr/lib/jvm/java-6-sun
-  export ANDROID_HOME=~/dev/android-sdk-linux_x86
 fi
 
 export EDITOR="vim"
-
-# fix/stuff the PATH
-export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-export PATH=$HOME/.dotfiles/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Quit unless interactive session
 [ -z "$PS1" ] && return
@@ -54,39 +57,15 @@ zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini id_rsa_test id_rsa_ldellou
 # autocomplete commands will include .hidden files
 setopt glob_dots
 
-if [[ "$unamestr" =~ 'Darwin' ]]; then
-  # MacOS @Work
-
-  # another specific alias for bundle opening in my nice vim - loaded after oh-my-zsh
-  alias bo="EDITOR=mvim bundle open"
-
-fi
-
 # bind Bash comportment for Ctrl+U (clears beginning of the line)
 bindkey \^U backward-kill-line
 
 # Customize to your needs...
 setopt NOCORRECTALL
-[ -f /usr/bin/mvim ] && alias vi='mvim -v' || alias vi='vim'
 
-# git kitchen
-# git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
-alias grb='git rebase -p'
-alias gpull='git fetch origin && grb origin/$(current_branch)'
-alias gm='git merge --no-ff'
-alias gpnp='gpull && gpush'
-# all in one super git stash and do - inspired from Dam5s aliases
-alias gsl='git stash list'
-alias gspull='git stash && gpull && git stash pop || true'
-alias gspnp='gspull && gpush'
-# some hub extra alias for github
-alias gpr='hub pull-request -h $(current_repository | sed -E "s#^([^/]+)/.*#\1#"):$(current_branch)'
-# some more advanced one (lazy people only) -- http://stackoverflow.com/questions/6127328
-alias gplb='git checkout master && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+# load more machine specific scripts at load
+[ -f ${HOME}/scripts/sys-utils/my.rc ] && source ${HOME}/scripts/sys-utils/my.rc
 
-# refine some other aliases
-alias glg='git log --stat --max-count=15'
-alias glgg='git log --graph --max-count=15'
+# load aliases scripts if defined
+alias_dir=${HOME}/.aliases; [ -d $alias_dir ] && for i in `ls $alias_dir`; do source $alias_dir/$i; done
 
-# tmux re-attach made easy
-alias tm='tmux list-sessions && tmux attach || tmux'

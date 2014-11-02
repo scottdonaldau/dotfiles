@@ -1,0 +1,19 @@
+unamestr=`uname`
+if [[ "$unamestr" =~ 'Darwin' ]]; then
+  # MacOS
+
+  alias bo="EDITOR=mvim bundle open"
+  alias vi='mvim -v'
+  
+  alias md5sum='md5 -r'
+  alias sha1sum='openssl sha1'
+
+else
+  # Linux
+
+  alias vi='vim'
+
+fi
+
+# tmux re-attach made easy
+alias tm='tmux list-sessions && tmux attach || tmux'

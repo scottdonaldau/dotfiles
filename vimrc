@@ -127,6 +127,8 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+nnoremap K :Ag <C-R><C-W><CR>
+
 
 " -- some functions --
 
