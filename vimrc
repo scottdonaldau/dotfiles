@@ -1,8 +1,59 @@
-" configure vim pathogen - http://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim
-filetype on " solves pathogen exit status 1 bug - http://tooky.github.com/2010/04/08/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x.html
-filetype off
-call pathogen#helptags()
-call pathogen#incubate()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-haml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kfl62/textile.vim'
+Plugin 'edsono/vim-matchit'
+Plugin 'depuracao/vim-rdoc'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'dterei/VimBookmarking'
+Plugin 'vim-scripts/upAndDown'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tsaleh/vim-align'
+Plugin 'godlygeek/tabular'
+Plugin 'rogerz/vim-json'
+Plugin 'rodjek/vim-puppet'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rking/ag.vim'
+Plugin 'honza/vim-snippets'
+Plugin 'bogado/file-line'
+Plugin 'vim-scripts/bufkill.vim'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'vim-scripts/vibrantink'
+Plugin 'joker1007/vim-ruby-heredoc-syntax'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
@@ -24,6 +75,7 @@ if s:uname == "Darwin\n"
   colorscheme railscasts
   nmap <leader>p :let @* = expand("%:.")<CR> " use ',p' to copy the current file relative path to the system clipboard
   nmap <leader>P :let @* = expand("%:p")<CR> " use ',P' to copy the current file absolute path to the system clipboard
+
 else
   " Do Linux Specifc here (gvim)
   colorscheme vibrantink " at home(linux) I can't see shit with railscast theme...
@@ -43,6 +95,9 @@ let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir 
 :vmap "" S"
 :vmap '' S'
 
+" add mapping for json beautify - require CPAN module JSON::XS -- http://visibletrap.blogspot.com.au/2010/05/vim-how-to-format-and-syntax-highlight.html
+map <leader>jb <Esc>:%!json_xs -f json -t json-pretty<CR>
+
 " set options
 set nocompatible " needed by some plugins
 set backspace=indent,eol,start
@@ -57,6 +112,7 @@ set nobackup       " no backup files
 set ignorecase " we don't the case on the search
 set smartcase " in fact we do care the case unless search is all lowercased
 set nowritebackup  " only in case you don't want a backup file while editing
+set hidden " non-visible buffers are just hidden, not closed (keep buffer history)
 set noswapfile     " no swap files
 set showcmd  	" display incomplete commands
 set incsearch  	" do incremental searching
@@ -67,6 +123,9 @@ set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
 set wildignore=log/**,public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 
 " -- some functions --
@@ -115,9 +174,6 @@ endfunction
 command! PackXML :call RePackXML()
 command! RePackXML :call RePackXML()
 
-" activate plugin for matchit (don't really know if it's a good idea to let that here though)
-filetype plugin on
-
 " mapping to change the working directory to the current file path
 nnoremap ,cd :lcd %:p:h<CR>
 
@@ -155,10 +211,21 @@ com! RM call DeleteFile() <Bar> q!
 
 " Let's stay lazy !
 " Force write the file using sudo permissions
-command Sudow w !sudo tee % > /dev/null
+command! Sudow w !sudo tee % > /dev/null
 " Often type W instead of w
-command W w
+command! W w
+" Ex is not Explore only anymore... - http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
+command! Ex Explore
+" Often typing E instead of e"
+command! E e
 
 " Show/Hide special characters (can't remember that 'list' toggle)
-command ShowSpecialCharacters set list
-command HideSpecialCharacters set nolist
+command! ShowSpecialCharacters set list
+command! HideSpecialCharacters set nolist
+
+" Add syntax rule
+let g:ruby_heredoc_syntax_filetypes = {
+        \ "xml" : {
+        \   "start" : "XML",
+        \},
+  \}

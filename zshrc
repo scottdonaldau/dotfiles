@@ -8,7 +8,7 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   export ANDROID_HOME=~/Library/android-sdk-mac_x86
   export NODEJS=/usr/local/share/npm
   export PATH=$NODEJS/bin:$PATH
-  
+
   if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
     function chpwd {
       local SEARCH=' '
@@ -20,6 +20,11 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   }
   alias md5sum='md5 -r'
   alias sha1sum='openssl sha1'
+  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+
+  # alias for node-webkit
+  alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+
 else
   # Linux @Home
   export JAVA_HOME=/usr/lib/jvm/java-6-sun
@@ -49,6 +54,14 @@ zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini id_rsa_test id_rsa_ldellou
 # autocomplete commands will include .hidden files
 setopt glob_dots
 
+if [[ "$unamestr" =~ 'Darwin' ]]; then
+  # MacOS @Work
+
+  # another specific alias for bundle opening in my nice vim - loaded after oh-my-zsh
+  alias bo="EDITOR=mvim bundle open"
+
+fi
+
 # bind Bash comportment for Ctrl+U (clears beginning of the line)
 bindkey \^U backward-kill-line
 
@@ -75,5 +88,5 @@ alias gplb='git checkout master && git branch --merged | grep -v "\*" | xargs -n
 alias glg='git log --stat --max-count=15'
 alias glgg='git log --graph --max-count=15'
 
-# another specific alias for bundle opening in my nice vim
-alias bo="EDITOR=mvim bundle open"
+# tmux re-attach made easy
+alias tm='tmux list-sessions && tmux attach || tmux'

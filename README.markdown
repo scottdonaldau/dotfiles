@@ -31,15 +31,17 @@ or back to bash:
     chsh -s /bin/bash
 
 
-### Adding a plugin
+### Vundle
 
-    git submodule add https://github.com/user/vim-myplugin.git vim/bundle/vim-myplugin
+    vim plugins are managed through vimrc itself now, see https://github.com/gmarik/Vundle.vim for more
 
-### Updating plugins
+### Update
 
     rake update
 
 ### Acknowledgements
 
-Thanks to [Ryan Bates]( http://github.com/ryanb/dotfiles) for the Rakefile code, [James Sadler](http://github.com/freshtonic/dotfiles) for the pathogen and bundle ideas, [Zach Holman](https://github.com/holman/dotfiles.git) and many others for their brilliant ideas :)
+Thanks to [Rufus Post]( http://github.com/mynameisrufus/dotfiles) for the dotfiles idea !
+
+And thx to all the coders that make this possible through their code share: [gmarik](https://github.com/gmarik/Vundle.vim), [Tim Pope](https://github.com/tpope), [Robby Russell](https://github.com/robbyrussell/oh-my-zsh) and so many more.
 
