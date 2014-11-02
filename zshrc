@@ -42,7 +42,7 @@ export ZSH_THEME="josh"
 # oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
 export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git bundler autojump rbenv ssh-agent)
+plugins=(git bundler autojump rbenv ssh-agent docker)
 source $ZSH/oh-my-zsh.sh
 zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini id_rsa_test id_rsa_ldellou
 
