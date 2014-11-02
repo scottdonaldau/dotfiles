@@ -1,10 +1,6 @@
 unamestr=`uname`
 if [[ "$unamestr" =~ 'Darwin' ]]; then
-  # MacOS @Work
-  export JAVA_HOME=/Library/Java/Home
-  export ANDROID_HOME=~/Library/android-sdk-mac_x86
-  export NODEJS=/usr/local/share/npm
-  export PATH=$NODEJS/bin:$PATH
+  # MacOS
 
   # Keypad from USB keyboard needs help under zsh since Yosemite (10.10) update
   # thx Robin Daugherty - http://superuser.com/a/830850/91702
@@ -40,18 +36,9 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
     chpwd
   }
 
-
-else
-  # Linux @Home
-  export JAVA_HOME=/usr/lib/jvm/java-6-sun
-  export ANDROID_HOME=~/dev/android-sdk-linux_x86
 fi
 
 export EDITOR="vim"
-
-# fix/stuff the PATH
-export PATH=$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-export PATH=$HOME/.dotfiles/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Quit unless interactive session
 [ -z "$PS1" ] && return
@@ -69,7 +56,6 @@ zstyle :omz:plugins:ssh-agent id_rsa id_rsa_ffmini id_rsa_test id_rsa_ldellou
 
 # autocomplete commands will include .hidden files
 setopt glob_dots
-
 
 # bind Bash comportment for Ctrl+U (clears beginning of the line)
 bindkey \^U backward-kill-line
