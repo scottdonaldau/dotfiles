@@ -29,6 +29,9 @@ else
   " and other Mac style shortcuts
   map <M-w> q
   imap <M-w> q
+  " Alt-S can't be mapped because it triggers the menu...
+  "map <M-s> w
+  "imap <M-s> w
 
 endif
 
