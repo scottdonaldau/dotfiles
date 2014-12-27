@@ -29,18 +29,19 @@ Plugin 'tsaleh/vim-align'
 Plugin 'godlygeek/tabular'
 Plugin 'rogerz/vim-json'
 Plugin 'rodjek/vim-puppet'
-Plugin 'evanmiller/nginx-vim-syntax'
+"Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tomtom/tlib_vim'
+"Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rking/ag.vim'
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 Plugin 'bogado/file-line'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'vim-scripts/vibrantink'
 Plugin 'joker1007/vim-ruby-heredoc-syntax'
+Plugin 'chase/vim-ansible-yaml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,6 +55,13 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" block vim-ruby balloon tooltips -
+" http://stackoverflow.com/questions/8534055/why-am-i-getting-a-popup-message-when-i-hover-on-any-word-of-a-ruby-file
+if has('noballooneval')
+  set noballooneval=
+  set balloonexp=
+endif
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
@@ -118,7 +126,7 @@ set showcmd  	" display incomplete commands
 set incsearch  	" do incremental searching
 set number    " display line numbers
 set showmatch  " show matching bracket
-set foldmethod=indent   " folding is available following indentation
+set foldmethod=manual   " folding like a nerd
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
