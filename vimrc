@@ -133,7 +133,7 @@ set foldmethod=manual   " folding like a nerd
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
-set wildignore=log/**,public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
+set wildignore=log/**,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
