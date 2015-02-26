@@ -178,6 +178,9 @@ endfunction
 command! PrettyXML :call DoPrettyXML()
 command! BeautifyXML :call DoPrettyXML()
 
+command! PrettyJSON :%!python -m json.tool
+command! BeautifyJSON :%!python -m json.tool
+
 " RePackXML de-beautify an XML buffer (compact style)
 function! RePackXML()
   " remove extra space at beginning of lines
