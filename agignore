@@ -1,6 +1,4 @@
 coverage
-app/assets/javascripts/lib
-spec/fixtures
 cache
 /log
 /public
