@@ -42,6 +42,7 @@ Plugin 'jpo/vim-railscasts-theme'
 Plugin 'vim-scripts/vibrantink'
 Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'trotter/autojump.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
