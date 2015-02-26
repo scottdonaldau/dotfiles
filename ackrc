@@ -1,8 +1,2 @@
---ignore-dir=log
 --ignore-dir=coverage
---ignore-dir=tmp
---ignore-dir=www/assets
---ignore-dir=public
---ignore-dir=app/assets/javascripts/lib
---ignore-dir=spec/fixtures
 --ignore-dir=cache
