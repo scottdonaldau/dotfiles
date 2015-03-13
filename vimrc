@@ -12,7 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-haml'
 Plugin 'vim-ruby/vim-ruby'
