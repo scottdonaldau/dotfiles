@@ -11,38 +11,38 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rails'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-haml'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'kfl62/textile.vim'
-Plugin 'edsono/vim-matchit'
-Plugin 'depuracao/vim-rdoc'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'dterei/VimBookmarking'
-Plugin 'vim-scripts/upAndDown'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tsaleh/vim-align'
-Plugin 'godlygeek/tabular'
 Plugin 'rogerz/vim-json'
-Plugin 'rodjek/vim-puppet'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'joker1007/vim-ruby-heredoc-syntax'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'moll/vim-node'
+Plugin 'chase/vim-ansible-yaml'
+"Plugin 'tpope/vim-rails'
+"Plugin 'rodjek/vim-puppet'
+"Plugin 'kfl62/textile.vim'
+"Plugin 'depuracao/vim-rdoc'
+"Plugin 'tpope/vim-cucumber'
 "Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rking/ag.vim'
-"Plugin 'honza/vim-snippets'
-Plugin 'bogado/file-line'
-Plugin 'vim-scripts/bufkill.vim'
+
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'vim-scripts/vibrantink'
-Plugin 'joker1007/vim-ruby-heredoc-syntax'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'trotter/autojump.vim'
+
+"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'edsono/vim-matchit'
+Plugin 'dterei/VimBookmarking'
+Plugin 'tpope/vim-surround' "surround selection with quotes
+Plugin 'vim-scripts/upAndDown'
+Plugin 'Townk/vim-autoclose' "auto-close brackets for you !
+Plugin 'tsaleh/vim-align'
+Plugin 'godlygeek/tabular'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'rking/ag.vim'
+Plugin 'bogado/file-line' "open file at line :line
+Plugin 'jlanzarotta/bufexplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,10 +92,10 @@ else
   nmap <leader>P :!echo "%:p" \|xsel -ib<CR><CR>
 endif
 
-" :Ack configuration
+" :Ack/Ag configuration
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir .sass-cache --ignore-dir build"
 
-" notepad++ style bookmarks (nobody's perfect) -- bookmarking extension
+" notepad++ style bookmarks (nobody's perfect) -- bookmarking plugin
 :map 22 :ToggleBookmark<CR>
 :map <C-2> :NextBookmark<CR>
 :map <C-@> :PreviousBookmark<CR>
@@ -143,6 +143,12 @@ if executable('ag')
 endif
 
 nnoremap K :Ag <C-R><C-W><CR>
+
+" Fugitive setups -  http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+" Auto-clean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+" Add git branch to status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 
 " -- some functions --

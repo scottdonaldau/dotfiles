@@ -9,6 +9,11 @@ if s:uname == "Darwin\n"
 
   set guifont=Monaco:h12
 
+  " nathanaelkane/vim-command-w specific
+  macmenu &File.Close key=<nop>
+  nmap <D-w> :bd<CR>
+  imap <D-w> <Esc>:bd<CR>
+
 else
 
   " Do Linux Specifc here
