@@ -15,5 +15,8 @@ else
 
 fi
 
+# Silver searcher ignores .gitignore files
+alias agu='ag -U'
+
 # tmux re-attach made easy
 alias tm='tmux list-sessions && tmux attach || tmux'
