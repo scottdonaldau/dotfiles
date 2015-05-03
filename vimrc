@@ -242,8 +242,10 @@ command! Sudow w !sudo tee % > /dev/null
 command! W w
 " Ex is not Explore only anymore... - http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
 command! Ex Explore
-" Often typing E instead of e"
-command! E e
+" Why not just E for Explore
+command! E Ex
+" And just V for Vertical-Explore
+command! V Vex
 
 " Show/Hide special characters (can't remember that 'list' toggle)
 command! ShowSpecialCharacters set list
