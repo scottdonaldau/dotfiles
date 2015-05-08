@@ -37,3 +37,5 @@ else
 
 endif
 
+map <leader>r <Esc>:set columns=255 lines=65<CR>
+
