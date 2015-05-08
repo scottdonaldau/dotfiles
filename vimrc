@@ -12,7 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-haml'
-Plugin 'rogerz/vim-json'
+Plugin 'elzr/vim-json'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'kchmck/vim-coffee-script'
@@ -206,6 +206,8 @@ nnoremap ,cd :lcd %:p:h<CR>
 " associate specific extensions with specific filetypes
 autocmd BufRead,BufNewFile *.rc set filetype=sh
 autocmd BufRead,BufNewFile *.hamlc,*.hamstache set filetype=haml
+autocmd BufRead,BufNewFile *.template set filetype=json foldmethod=syntax
+let g:vim_json_syntax_conceal = 0 " specific to vim-json plugin (to keep the double quotes visible)
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Delete file from current buffer - from http://vim.wikia.com/wiki/Delete_files_with_a_Vim_command
