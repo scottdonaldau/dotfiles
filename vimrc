@@ -11,36 +11,38 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rails'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-haml'
+Plugin 'elzr/vim-json'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'kfl62/textile.vim'
-Plugin 'edsono/vim-matchit'
-Plugin 'depuracao/vim-rdoc'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'dterei/VimBookmarking'
-Plugin 'vim-scripts/upAndDown'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tsaleh/vim-align'
-Plugin 'godlygeek/tabular'
-Plugin 'rogerz/vim-json'
-Plugin 'rodjek/vim-puppet'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rking/ag.vim'
-Plugin 'honza/vim-snippets'
-Plugin 'bogado/file-line'
-Plugin 'vim-scripts/bufkill.vim'
+Plugin 'moll/vim-node'
+Plugin 'chase/vim-ansible-yaml'
+"Plugin 'tpope/vim-rails'
+"Plugin 'rodjek/vim-puppet'
+"Plugin 'kfl62/textile.vim'
+"Plugin 'depuracao/vim-rdoc'
+"Plugin 'tpope/vim-cucumber'
+"Plugin 'evanmiller/nginx-vim-syntax'
+
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'vim-scripts/vibrantink'
-Plugin 'joker1007/vim-ruby-heredoc-syntax'
+
+"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'edsono/vim-matchit'
+Plugin 'dterei/VimBookmarking'
+Plugin 'tpope/vim-surround' "surround selection with quotes
+Plugin 'vim-scripts/upAndDown'
+Plugin 'Townk/vim-autoclose' "auto-close brackets for you !
+Plugin 'tsaleh/vim-align'
+Plugin 'godlygeek/tabular'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'rking/ag.vim'
+Plugin 'bogado/file-line' "open file at line :line
+Plugin 'jlanzarotta/bufexplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,6 +56,13 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" block vim-ruby balloon tooltips -
+" http://stackoverflow.com/questions/8534055/why-am-i-getting-a-popup-message-when-i-hover-on-any-word-of-a-ruby-file
+if has('noballooneval')
+  set noballooneval=
+  set balloonexp=
+endif
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
@@ -83,10 +92,10 @@ else
   nmap <leader>P :!echo "%:p" \|xsel -ib<CR><CR>
 endif
 
-" :Ack configuration
+" :Ack/Ag configuration
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir tmp --ignore-dir .sass-cache --ignore-dir build"
 
-" notepad++ style bookmarks (nobody's perfect) -- bookmarking extension
+" notepad++ style bookmarks (nobody's perfect) -- bookmarking plugin
 :map 22 :ToggleBookmark<CR>
 :map <C-2> :NextBookmark<CR>
 :map <C-@> :PreviousBookmark<CR>
@@ -102,32 +111,44 @@ map <leader>jb <Esc>:%!json_xs -f json -t json-pretty<CR>
 set nocompatible " needed by some plugins
 set backspace=indent,eol,start
 set autoindent sw=2 et " auto-indend at new line
+set copyindent " copy the previous indentation on autoindenting
 set list " show special characters
-set history=100 " default is 20
+set history=1000 " default is 20
+set undolevels=1000 " use many muchos levels of undo
 set cmdwinheight=50 " number of line of the Command Window (used by :Ack results)
 set ruler " show <row>,<column> position on the right of the status bar
 set wrap " word wrapping is on by default
 syntax on "syntax highlighting
 set nobackup       " no backup files
 set ignorecase " we don't the case on the search
+set hlsearch      " highlight search terms
 set smartcase " in fact we do care the case unless search is all lowercased
 set nowritebackup  " only in case you don't want a backup file while editing
 set hidden " non-visible buffers are just hidden, not closed (keep buffer history)
 set noswapfile     " no swap files
-set showcmd  	" display incomplete commands
-set incsearch  	" do incremental searching
+set showcmd  " display incomplete commands
+set incsearch  " do incremental searching
 set number    " display line numbers
 set showmatch  " show matching bracket
-set foldmethod=indent   " folding is available following indentation
+set foldmethod=manual   " folding like a nerd
 set nofoldenable    " disable folding by default
 set laststatus=2 " Always display the status line
 set tabstop=2 shiftwidth=2 expandtab " tabs are converted into 2 spaces
-set wildignore=log/**,public/**,tmp,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
+set wildignore=log/**,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**,CordovaLib/**,www/**,*.png,*.gif,*.jpg,*.jpeg,*.ico " ignore some files (used by command-t plugin)
+set title                " change the terminal's title
+set visualbell           " don't beep
+set noerrorbells         " don't beep
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 nnoremap K :Ag <C-R><C-W><CR>
+
+" Fugitive setups -  http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+" Auto-clean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+" Add git branch to status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 
 " -- some functions --
@@ -164,6 +185,9 @@ endfunction
 command! PrettyXML :call DoPrettyXML()
 command! BeautifyXML :call DoPrettyXML()
 
+command! PrettyJSON :%!python -m json.tool
+command! BeautifyJSON :%!python -m json.tool
+
 " RePackXML de-beautify an XML buffer (compact style)
 function! RePackXML()
   " remove extra space at beginning of lines
@@ -182,6 +206,8 @@ nnoremap ,cd :lcd %:p:h<CR>
 " associate specific extensions with specific filetypes
 autocmd BufRead,BufNewFile *.rc set filetype=sh
 autocmd BufRead,BufNewFile *.hamlc,*.hamstache set filetype=haml
+autocmd BufRead,BufNewFile *.template set filetype=json foldmethod=syntax
+let g:vim_json_syntax_conceal = 0 " specific to vim-json plugin (to keep the double quotes visible)
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Delete file from current buffer - from http://vim.wikia.com/wiki/Delete_files_with_a_Vim_command
@@ -218,8 +244,10 @@ command! Sudow w !sudo tee % > /dev/null
 command! W w
 " Ex is not Explore only anymore... - http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
 command! Ex Explore
-" Often typing E instead of e"
-command! E e
+" Why not just E for Explore
+command! E Ex
+" And just V for Vertical-Explore
+command! V Vex
 
 " Show/Hide special characters (can't remember that 'list' toggle)
 command! ShowSpecialCharacters set list

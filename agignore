@@ -1,8 +1,5 @@
-log
 coverage
-tmp
-www/assets
-public
-app/assets/javascripts/lib
-spec/fixtures
 cache
+/log
+/public
+node_modules

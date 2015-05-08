@@ -9,6 +9,11 @@ if s:uname == "Darwin\n"
 
   set guifont=Monaco:h12
 
+  " nathanaelkane/vim-command-w specific
+  macmenu &File.Close key=<nop>
+  nmap <D-w> :bd<CR>
+  imap <D-w> <Esc>:bd<CR>
+
 else
 
   " Do Linux Specifc here
@@ -54,4 +59,6 @@ else
   vmap <C-s> <Esc>:w<CR>gv
 
 endif
+
+map <leader>r <Esc>:set columns=255 lines=65<CR>
 
