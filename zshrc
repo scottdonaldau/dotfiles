@@ -50,7 +50,7 @@ export ZSH_THEME="josh"
 # oh-my-zsh still: do not check for upgrade by default, it's fucking annoying !
 export DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git bundler autojump rbenv docker)
+plugins=(git bundler z rbenv docker)
 source $ZSH/oh-my-zsh.sh
 
 # autocomplete commands will include .hidden files
