@@ -104,8 +104,8 @@ let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir log --ignore-dir 
 :vmap "" S"
 :vmap '' S'
 
-" add mapping for json beautify - require CPAN module JSON::XS -- http://visibletrap.blogspot.com.au/2010/05/vim-how-to-format-and-syntax-highlight.html
-map <leader>jb <Esc>:%!json_xs -f json -t json-pretty<CR>
+" add mapping for json pretty print - https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/
+map <leader>jp <Esc>:%!python -m json.tool<CR>
 
 " set options
 set nocompatible " needed by some plugins
