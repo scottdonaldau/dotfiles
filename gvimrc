@@ -11,8 +11,8 @@ if s:uname == "Darwin\n"
 
   " nathanaelkane/vim-command-w specific
   macmenu &File.Close key=<nop>
-  nmap <D-w> :bd<CR>
-  imap <D-w> <Esc>:bd<CR>
+  nmap <D-w> :q<CR>
+  imap <D-w> <Esc>:q<CR>
 
 else
 
