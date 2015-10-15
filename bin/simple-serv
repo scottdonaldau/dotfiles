@@ -1,5 +1,19 @@
-port=$1
-: ${port:=8888}
+#!/bin/bash
+set -ue
+
+dir=.
+port=8888
+
+if [[ $# > 1 ]]; then
+  port=$2
+fi
+
+if [[ $# > 0 ]]; then
+  dir=$1
+fi
+
+cd $dir
+echo "In `pwd`"
 python -m SimpleHTTPServer $port
 
 # from http://stackoverflow.com/questions/12268835/is-it-possible-to-run-python-simplehttpserver-on-localhost-only
