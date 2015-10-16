@@ -1,0 +1,18 @@
+#!/bin/bash
+
+msgs_file=$HOME/.dotfiles.msg
+
+cd $HOME/.dotfiles
+changes_to_push=`git status --porcelain | wc -l`
+if [[ $changes_to_push -gt 0 ]]; then
+  echo "Outstanding changes in your .dotfiles.. do something mate!"
+  git status --short
+  exit 0
+fi
+
+git fetch
+if ! `git status -uno | grep 'up-to-date' > /dev/null 2>&1`; then
+  echo -n "Your .dotfiles.. "
+  git status -uno
+  exit 0
+fi
