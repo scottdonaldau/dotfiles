@@ -4,13 +4,19 @@ set -ue
 dir=.
 port=8888
 
-if [[ $# > 1 ]]; then
-  port=$2
-fi
+while [[ $# > 0 ]]; do
+  if [[ -e $1 ]]; then
+    dir=$1
+    echo "Found param - Dir: $1"
+  fi
 
-if [[ $# > 0 ]]; then
-  dir=$1
-fi
+  number_regexp='^[0-9]+$'
+  if [[ $1 =~ $number_regexp ]]; then
+    port=$1
+    echo "Found param - Port: $1"
+  fi
+  shift
+done
 
 cd $dir
 echo "In `pwd`"
