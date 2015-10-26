@@ -46,5 +46,8 @@ dbu() { docker build -t=$1 .; }
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort;}
 
-# docker-machine
+# laziness
 alias dm="docker-machine"
+de() {
+  docker exec -ti $1 ${2:=bash}
+}
