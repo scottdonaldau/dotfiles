@@ -1,7 +1,7 @@
 # git kitchen
 # git-rebase aliases -- http://notes.envato.com/developers/rebasing-merge-commits-in-git/ -- thanks Glen's @ envato.com
 alias grb='git rebase -p'
-alias gpull='git fetch $(current_remote) && grb $(current_remote)/$(current_branch)'
+alias gpull='git fetch origin && grb origin/$(current_branch)'
 alias gm='git merge --no-ff'
 alias gpnp='gpull && gpush'
 # all in one super git stash and do - inspired from Dam5s aliases
