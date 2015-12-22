@@ -51,3 +51,5 @@ alias dm="docker-machine"
 de() {
   docker exec -ti $1 ${2:=bash}
 }
+
+alias dr='source ~/.docker.rc && env | grep -i dock'
