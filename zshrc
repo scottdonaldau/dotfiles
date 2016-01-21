@@ -69,4 +69,4 @@ setopt NOCORRECTALL
 alias_dir=${HOME}/.aliases; [ -d $alias_dir ] && for i in `ls $alias_dir`; do source $alias_dir/$i; done
 
 # show eventual dotfiles message
-cat ~/.dotfiles-msg
+cat ~/.dotfiles-msg | sed 's/^/[~\/.dotfiles-msg] /'
