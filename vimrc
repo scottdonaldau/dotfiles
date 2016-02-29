@@ -77,6 +77,8 @@ nnoremap <leader>k :set invwrap wrap?<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>  
 " ',;' to toggle paste mode
 set pastetoggle=<leader>;
+" ',cd' to change directory to the current file path
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " ',p' put current buffer filepath to the clipboard
 let s:uname = system("uname")
