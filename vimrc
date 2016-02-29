@@ -75,6 +75,9 @@ map <leader>= <Esc>:1,$!xmllint --format -<CR>
 nnoremap <leader>k :set invwrap wrap?<CR>
 " ',d' to toggle the NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>  
+" Change few NerdTree shortcuts
+let NERDTreeMapOpenVSplit='v'
+let NERDTreeMapOpenSplit='s'
 " ',;' to toggle paste mode
 set pastetoggle=<leader>;
 " ',cd' to change directory to the current file path
