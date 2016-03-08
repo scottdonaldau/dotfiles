@@ -99,3 +99,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# load FZF fuzzy matcher
+export FZF_DEFAULT_OPTS="--exact"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

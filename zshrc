@@ -70,3 +70,7 @@ alias_dir=${HOME}/.aliases; [ -d $alias_dir ] && for i in `ls $alias_dir`; do so
 
 # show eventual dotfiles message
 cat ~/.dotfiles-msg | sed 's/^/[~\/.dotfiles-msg] /'
+
+# load FZF fuzzy matcher
+export FZF_DEFAULT_OPTS="--exact"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

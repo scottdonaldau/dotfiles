@@ -1,5 +1,2 @@
 # first, the survival kit
-brew install ack autojump git hub macvim git-cola wget lftp
-
-# then some project's dependencies
-brew install mysql
+brew install ack z git hub macvim git-cola wget lftp fzf
