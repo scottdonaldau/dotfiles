@@ -3,3 +3,4 @@ cache
 /log
 /public
 node_modules
+*.log
