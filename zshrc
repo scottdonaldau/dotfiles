@@ -74,3 +74,9 @@ cat ~/.dotfiles-msg | sed 's/^/[~\/.dotfiles-msg] /'
 # load FZF fuzzy matcher
 export FZF_DEFAULT_OPTS="--exact"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# change z to use fzf if used without parameter
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}
