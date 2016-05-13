@@ -38,12 +38,11 @@ Plugin 'vim-scripts/upAndDown'
 Plugin 'Townk/vim-autoclose' "auto-close brackets for you !
 Plugin 'tsaleh/vim-align'
 Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired' "magic ]q
 Plugin 'rking/ag.vim'
 Plugin 'bogado/file-line' "open file at line :line
-Plugin 'jlanzarotta/bufexplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -153,8 +152,6 @@ nnoremap K :Ag <C-R><C-W><CR>
 " Fugitive setups -  http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 " Auto-clean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
-" Add git branch to status line
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 
 " -- some functions --
