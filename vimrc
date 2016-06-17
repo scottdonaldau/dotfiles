@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" syntax plugins
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-haml'
 Plugin 'elzr/vim-json'
@@ -25,9 +26,14 @@ Plugin 'chase/vim-ansible-yaml'
 "Plugin 'tpope/vim-cucumber'
 "Plugin 'evanmiller/nginx-vim-syntax'
 
+" fold plugins
+Plugin 'nelstrom/vim-markdown-folding'
+
+" theme plugins
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'vim-scripts/vibrantink'
 
+" toys
 Plugin 'scrooloose/nerdtree'
 Plugin 'GutenYe/json5.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -209,7 +215,7 @@ nnoremap ,cd :lcd %:p:h<CR>
 " associate specific extensions with specific filetypes
 autocmd BufRead,BufNewFile *.rc set filetype=sh
 autocmd BufRead,BufNewFile *.hamlc,*.hamstache set filetype=haml
-autocmd BufRead,BufNewFile *.template set filetype=json foldmethod=syntax
+autocmd BufRead,BufNewFile *.template,*.json set filetype=json foldmethod=syntax
 let g:vim_json_syntax_conceal = 0 " specific to vim-json plugin (to keep the double quotes visible)
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
