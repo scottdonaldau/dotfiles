@@ -20,3 +20,5 @@ if ! `git status -uno | grep 'up-to-date' > /dev/null 2>&1`; then
   git status -uno
   exit 0
 fi
+
+exit 0
