@@ -31,9 +31,9 @@ or back to bash:
     chsh -s /bin/bash
 
 
-### Vundle
+### Vim-PLug
 
-    vim plugins are managed through vimrc itself now, see https://github.com/gmarik/Vundle.vim for more
+    vim plugins are managed through vimrc itself now, see https://github.com/junegunn/vim-plug
 
 ### Update
 

@@ -1,74 +1,49 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" https://github.com/junegunn/vim-plug/wiki/faq
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " syntax plugins
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-haml'
-Plugin 'elzr/vim-json'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'joker1007/vim-ruby-heredoc-syntax'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'moll/vim-node'
-Plugin 'chase/vim-ansible-yaml'
-"Plugin 'tpope/vim-rails'
-"Plugin 'rodjek/vim-puppet'
-"Plugin 'kfl62/textile.vim'
-"Plugin 'depuracao/vim-rdoc'
-"Plugin 'tpope/vim-cucumber'
-"Plugin 'evanmiller/nginx-vim-syntax'
-
+Plug 'tpope/vim-markdown', { 'for':  'markdown' }
+Plug 'tpope/vim-haml', { 'for':  'haml' }
+Plug 'elzr/vim-json', { 'for':  'json' }
+Plug 'vim-ruby/vim-ruby', { 'for':  'ruby' }
+Plug 'joker1007/vim-ruby-heredoc-syntax', { 'for':  'ruby' }
+Plug 'kchmck/vim-coffee-script', { 'for':  'coffee' }
+Plug 'moll/vim-node', { 'for':  'node' }
+Plug 'chase/vim-ansible-yaml', { 'for':  'yml' }
+Plug 'evanmiller/nginx-vim-syntax', { 'for':  'nginx.conf' }
 " fold plugins
-Plugin 'nelstrom/vim-markdown-folding'
-
+Plug 'nelstrom/vim-markdown-folding', { 'for':  'markdown' }
 " theme plugins
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'vim-scripts/vibrantink'
-
+Plug 'jpo/vim-railscasts-theme'
+Plug 'vim-scripts/vibrantink'
 " toys
-Plugin 'scrooloose/nerdtree'
-Plugin 'GutenYe/json5.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'edsono/vim-matchit'
-Plugin 'dterei/VimBookmarking'
-Plugin 'tpope/vim-surround' "surround selection with quotes
-Plugin 'vim-scripts/upAndDown'
-Plugin 'Townk/vim-autoclose' "auto-close brackets for you !
-Plugin 'tsaleh/vim-align'
-Plugin 'godlygeek/tabular'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired' "magic ]q
-Plugin 'rking/ag.vim'
-Plugin 'bogado/file-line' "open file at line :line
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" block vim-ruby balloon tooltips -
-" http://stackoverflow.com/questions/8534055/why-am-i-getting-a-popup-message-when-i-hover-on-any-word-of-a-ruby-file
-if has('noballooneval')
-  set noballooneval=
-  set balloonexp=
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'GutenYe/json5.vim', { 'for':  'json5' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'edsono/vim-matchit'
+Plug 'dterei/VimBookmarking', { 'on': [] }
+Plug 'tpope/vim-surround' "surround selection with quotes
+Plug 'vim-scripts/upAndDown'
+Plug 'Townk/vim-autoclose' "auto-close brackets for you !
+Plug 'tsaleh/vim-align'
+Plug 'godlygeek/tabular'
+Plug 'ctrlpvim/ctrlp.vim' " FuzzySearch in tree
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired' "magic ]q
+Plug 'rking/ag.vim' " silversearcher via :Ag
+Plug 'bogado/file-line' "open file at line :line
+Plug 'junegunn/goyo.vim' " distraction free writing
+Plug 'junegunn/limelight.vim' " Hyperfocus via paragraph contrast - nice to demo code
+if has('mac')
+  Plug 'junegunn/vim-xmark'
 endif
+call plug#end()
 
 " assigning a leader key and mapping some commands to it
 let mapleader = ","
