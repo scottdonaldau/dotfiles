@@ -37,23 +37,10 @@ task :install do
   # get submodules
   system %Q{git submodule init}
   system %Q{git submodule update}
-
-  # install vundle
-  system %Q{git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim}
-
-  # update vim's plugins (via vundle)
-  vundle_update
 end
 
 task :update do
   system %Q{git submodule foreach git pull origin master}
-
-  # update vim's plugins (via vundle)
-  vundle_update
-end
-
-def vundle_update
-  system %Q{vim +PluginInstall +qall}
 end
 
 def replace_file(file)
