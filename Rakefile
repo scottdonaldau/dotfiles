@@ -2,8 +2,8 @@ require 'rake'
 require 'erb'
 
 desc "install the dot files into user's home directory"
-task :install do
-  replace_all = false
+task :install, [:replace_all] do |t, args|
+  replace_all = !!args[:replace_all] || false
   Dir['*'].each do |file|
 
     next if file =~ /^install_/
@@ -37,10 +37,20 @@ task :install do
   # get submodules
   system %Q{git submodule init}
   system %Q{git submodule update}
+
+  # update vim's plugins
+  update_plugins
 end
 
 task :update do
   system %Q{git submodule foreach git pull origin master}
+
+  # update vim's plugins
+  update_plugins
+end
+
+def update_plugins
+  system %Q{vim +PlugInstall +qall}
 end
 
 def replace_file(file)
