@@ -8,6 +8,9 @@ if [[ "$unamestr" =~ 'Darwin' ]]; then
   alias md5sum='md5 -r'
   alias sha1sum='openssl sha1'
 
+  # require: brew install gnu-netcat
+  which netcat >/dev/null 2>&1 &&alias nc=netcat
+
 else
   # Linux
 
