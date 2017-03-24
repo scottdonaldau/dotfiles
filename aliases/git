@@ -18,3 +18,5 @@ alias gplb='git checkout master && git branch --merged | grep -v "\*" | xargs -n
 alias glg='git log --stat --max-count=15'
 alias glgg='git log --graph --max-count=15'
 
+# remove all merged branch from origin - thx https://gist.github.com/schacon/942899
+alias gdelete_merged='git branch -r --merged | grep "^origin/" | grep -vE "(>|master|feature)" | xargs -L1 | cut -d"/" -f2- | xargs git push origin --delete'
