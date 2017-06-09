@@ -25,7 +25,7 @@ Plug 'vim-scripts/vibrantink'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'GutenYe/json5.vim', { 'for':  'json5' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'edsono/vim-matchit'
+Plug 'vimtaku/hl_matchit.vim' "enable easy jumps from/to matching bracket/tag
 Plug 'dterei/VimBookmarking', { 'on': [] }
 Plug 'tpope/vim-surround' "surrounding words, motion, selection with quotes or tags
 Plug 'vim-scripts/upAndDown'
