@@ -123,10 +123,14 @@ set wildignore=log/**,tmp/cache,BUILD/**,BUILDROOT/*,RPMS,SOURCES,*.xcodeproj/**
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
+
+" Setup some specifics for CtrlP
+let g:ctrlp_cmd = 'CtrlPMixed'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" Shift-K searchs with ag
 nnoremap K :Ag <C-R><C-W><CR>
 
 " Fugitive setups -  http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
@@ -232,7 +236,7 @@ command! E Ex
 " And just V for Vertical-Explore
 command! V Vex
 
-" Show/Hide special characters (can't remember that 'list' toggle)
+" Show/Hide special characters (can't remember the 'list' toggle)
 command! ShowSpecialCharacters set list
 command! HideSpecialCharacters set nolist
 
